@@ -1,5 +1,3 @@
-Cvičení z předmětu PPJ
+Practicals and semestral project from Advanced java course
 
-cv01 - fork na repo + pull request (repo PPJRepoTest)
-
-ostatní cvičení zde
+cv01 - forking repo + pull request (repo PPJRepoTest)
