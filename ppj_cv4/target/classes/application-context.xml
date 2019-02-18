@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- bez autowire
+    <bean id="pingMessage" class="app.assignments.message.PingMessage" />
+    <bean id="pingMessageReply" class="app.assignments.message.ReplyMessage" >
+        <constructor-arg index="0" ref="pingMessage"/>
+        <constructor-arg index="1" value="ahoj"/>
+    </bean>
+    <bean id="helloMessage" class="app.assignments.message.CustomMessage" />
+    <bean id="stdoutWriter" class="app.assignments.writer.StdoutWriter" />
+    <bean id="listWriter" class="app.assignments.writer.ListWriter" />
+    -->
+
+    <!-- AUTOWIRE
+    <bean id="pingMessage" class="app.assignments.message.PingMessage" />
+    <bean id="reply" class="java.lang.String">
+        <constructor-arg value="ahoj"/>
+    </bean>
+    <bean id="original" class="app.assignments.message.PingMessage" />
+    <bean id="pingMessageReply" class="app.assignments.message.ReplyMessage" autowire="constructor"/>
+    <bean id="helloMessage" class="app.assignments.message.CustomMessage" />
+    <bean id="stdoutWriter" class="app.assignments.writer.StdoutWriter"/>
+    <bean id="listWriter" class="app.assignments.writer.ListWriter"/>
+    -->
+
+    <context:component-scan base-package="app.assignments"/>
+
+
+
+</beans>
