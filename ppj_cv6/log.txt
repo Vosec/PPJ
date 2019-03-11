@@ -1,0 +1,5 @@
+﻿16:32:25.807 [main] INFO  ppj.assignments.Main - Starting Main on DESKTOP-GU6IBM3 with PID 27564 (C:\Users\dzusi\Documents\School\1_LS\PPJ\PPJCviceni\ppj_cv6\target\classes started by Lukáš in C:\Users\dzusi\Documents\School\1_LS\PPJ\PPJCviceni\ppj_cv6)
+16:32:25.822 [main] DEBUG ppj.assignments.Main - Running with Spring Boot v1.3.2.RELEASE, Spring v4.2.4.RELEASE
+16:32:25.822 [main] INFO  ppj.assignments.Main - The following profiles are active: prod
+16:32:26.713 [main] INFO  ppj.assignments.Main - Started Main in 1.344 seconds (JVM running for 2.586)
+16:32:26.713 [main] INFO  ppj.assignments.Main - Application PPJ_cv6 [profiles prod, description 'prod']
