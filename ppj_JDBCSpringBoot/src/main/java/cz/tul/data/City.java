@@ -38,7 +38,7 @@ public class City {
         return id;
     }
 
-    public String getName() {
+    public String getCityName() {
         return cityName;
     }
 

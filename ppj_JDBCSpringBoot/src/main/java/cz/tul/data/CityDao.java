@@ -36,29 +36,15 @@ public class CityDao {
         return jdbc.update("update cities set cityname=:cityname where id=:id", params) == 1;
     }
 
-    /** Doesnt work because of statename in object State cant be found in object City ???
+
     public boolean create(City city) {
 
         BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
                 city);
 
         return jdbc
-                .update("insert into cities (statename, cityname) values (:statename, :cityname)",
+                .update("insert into cities (statename, cityname) values (:stateName, :cityName)",
                         params) == 1;
-    }
-     */
-    @Transactional
-    public boolean create2(City city) {
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-
-        params.addValue("statename", city.getStateName());
-        params.addValue("cityname", city.getName());
-
-        return jdbc.update("insert into cities (statename, cityname) values (:statename, :cityname)", params) == 1;
-    }
-    public void deleteCities() {
-        jdbc.getJdbcOperations().execute("DELETE FROM cities");
     }
 
     @Transactional
@@ -68,7 +54,7 @@ public class CityDao {
                 .createBatch(cities.toArray());
 
         return jdbc
-                .batchUpdate("insert into cities (statename, cityname) values (:statename, :cityname)", params);
+                .batchUpdate("insert into cities (statename, cityname) values (:stateName, :cityName)", params);
     }
 
     public boolean delete(int id) {

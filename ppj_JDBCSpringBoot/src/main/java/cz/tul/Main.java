@@ -46,8 +46,8 @@ public class Main {
         State s = new State("France");
         //stateDao.create(s);
 
-        City c = new City("Louvre", s);
-        cityDao.create2(c);
+        //City c = new City("Louvre", s);
+        //cityDao.create(c);
 
     }
 

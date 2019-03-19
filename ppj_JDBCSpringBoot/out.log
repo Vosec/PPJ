@@ -1,7 +1,7 @@
-22:51:22.488 [main] INFO  cz.tul.Main - Starting Main on DESKTOP-GU6IBM3 with PID 8636 (C:\Users\dzusi\Documents\School\1_LS\PPJ\PPJCviceni\ppj_JDBCSpringBoot\target\classes started by Lukáš in C:\Users\dzusi\Documents\School\1_LS\PPJ\PPJCviceni\ppj_JDBCSpringBoot)
-22:51:22.488 [main] INFO  cz.tul.Main - No active profile set, falling back to default profiles: default
-22:51:22.559 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6ee12bac: startup date [Mon Mar 18 22:51:22 CET 2019]; root of context hierarchy
-22:51:23.797 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-22:51:23.817 [main] INFO  cz.tul.Main - Started Main in 1.612 seconds (JVM running for 2.949)
-22:51:24.205 [Thread-5] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@6ee12bac: startup date [Mon Mar 18 22:51:22 CET 2019]; root of context hierarchy
-22:51:24.220 [Thread-5] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+10:43:18.391 [main] INFO  cz.tul.Main - Starting Main on DESKTOP-GU6IBM3 with PID 35828 (C:\Users\dzusi\Documents\School\1_LS\PPJ\PPJCviceni\ppj_JDBCSpringBoot\target\classes started by Lukáš in C:\Users\dzusi\Documents\School\1_LS\PPJ\PPJCviceni\ppj_JDBCSpringBoot)
+10:43:18.391 [main] INFO  cz.tul.Main - No active profile set, falling back to default profiles: default
+10:43:18.460 [main] INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6ee12bac: startup date [Tue Mar 19 10:43:18 CET 2019]; root of context hierarchy
+10:43:19.612 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+10:43:19.619 [main] INFO  cz.tul.Main - Started Main in 1.46 seconds (JVM running for 2.799)
+10:43:19.997 [Thread-5] INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@6ee12bac: startup date [Tue Mar 19 10:43:18 CET 2019]; root of context hierarchy
+10:43:19.997 [Thread-5] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
