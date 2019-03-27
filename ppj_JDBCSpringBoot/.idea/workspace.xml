@@ -7,6 +7,16 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/tul/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/CityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/CityDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/StateDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/StateDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cz/tul/CityDaoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cz/tul/CityDaoTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cz/tul/StateDaoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cz/tul/StateDaoTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/tul/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/tul/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/tul/data/CityDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/tul/data/CityDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/tul/data/StateDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/tul/data/StateDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/cz/tul/StateDaoTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/cz/tul/StateDaoTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ppj_cv5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ppj_cv5/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,40 +30,45 @@
     <session id="-973254809">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="class" value="1" />
           <entry key="hsql" value="6" />
-          <entry key="java" value="47" />
-          <entry key="properties" value="14" />
+          <entry key="java" value="59" />
+          <entry key="properties" value="18" />
           <entry key="script" value="1" />
-          <entry key="xml" value="4" />
+          <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="47" />
+          <entry key="CLASS" value="1" />
+          <entry key="JAVA" value="59" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Properties" value="14" />
-          <entry key="XML" value="4" />
+          <entry key="Properties" value="18" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="15" />
           <entry key="hsql" value="115" />
-          <entry key="java" value="2093" />
+          <entry key="java" value="2308" />
           <entry key="properties" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2093" />
+          <entry key="JAVA" value="2308" />
           <entry key="PLAIN_TEXT" value="130" />
           <entry key="Properties" value="36" />
         </counts>
@@ -63,23 +78,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/State.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding>
-                <element signature="e#385#386#0" expanded="true" />
-                <element signature="e#429#430#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="198">
+              <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/Main.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/cz/tul/CityDaoTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="49" column="10" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
+            <state relative-caret-position="272">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
@@ -87,8 +98,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/StateDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="204">
+              <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/cz/tul/StateDaoTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="487">
+              <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,27 +122,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/CityDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="255">
+              <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/City.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-              <folding>
-                <element signature="e#145#146#0" expanded="true" />
-                <element signature="e#173#174#0" expanded="true" />
-                <element signature="e#214#215#0" expanded="true" />
-                <element signature="e#248#249#0" expanded="true" />
-                <element signature="e#643#644#0" expanded="true" />
-                <element signature="e#683#684#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,6 +140,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Offer</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -142,15 +156,15 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/provisioning/Provisioner.java" />
         <option value="$PROJECT_DIR$/src/main/resources/create_tables.hsql" />
+        <option value="$PROJECT_DIR$/src/test/resources/application-test.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/StateDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/City.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/State.java" />
         <option value="$PROJECT_DIR$/src/test/java/cz/tul/StateDaoTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/StateDao.java" />
         <option value="$PROJECT_DIR$/src/test/java/cz/tul/CityDaoTests.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/application-test.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/City.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/CityDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/tul/Main.java" />
       </list>
     </option>
   </component>
@@ -174,7 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,7 +239,29 @@
               <item name="JDBCspringBoot" type="b2602c69:ProjectViewProjectNode" />
               <item name="ppj_JDBCSpringBoot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JDBCspringBoot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ppj_JDBCSpringBoot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JDBCspringBoot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ppj_JDBCSpringBoot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JDBCspringBoot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ppj_JDBCSpringBoot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tul" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JDBCspringBoot" type="b2602c69:ProjectViewProjectNode" />
@@ -240,6 +275,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,7 +313,35 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.CityDaoTests">
+    <configuration name="CityDaoTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JDBCspringBoot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cz.tul.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cz.tul" />
+      <option name="MAIN_CLASS_NAME" value="cz.tul.CityDaoTests" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StateDaoTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JDBCspringBoot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cz.tul.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cz.tul" />
+      <option name="MAIN_CLASS_NAME" value="cz.tul.StateDaoTests" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="JDBCspringBoot" />
       <extension name="coverage">
@@ -291,8 +355,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.Main" />
+      <item itemvalue="JUnit.CityDaoTests" />
+      <item itemvalue="JUnit.StateDaoTests" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CityDaoTests" />
+        <item itemvalue="JUnit.StateDaoTests" />
         <item itemvalue="Spring Boot.Main" />
       </list>
     </recent_temporary>
@@ -308,25 +379,59 @@
       <option name="presentableId" value="Default" />
       <updated>1552920530450</updated>
       <workItem from="1552920534670" duration="14074000" />
-      <workItem from="1552982150187" duration="679000" />
+      <workItem from="1552982150187" duration="771000" />
+      <workItem from="1553001888422" duration="39000" />
+      <workItem from="1553520640994" duration="5152000" />
+      <workItem from="1553721134536" duration="953000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="StateDaoTests - 2019.03.27 at 22h 13m 19s.xml">
+      <configuration name="StateDaoTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CityDaoTests - 2019.03.27 at 22h 14m 56s.xml">
+      <configuration name="CityDaoTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CityDaoTests - 2019.03.27 at 22h 19m 04s.xml">
+      <configuration name="CityDaoTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CityDaoTests - 2019.03.27 at 22h 19m 59s.xml">
+      <configuration name="CityDaoTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CityDaoTests - 2019.03.27 at 22h 20m 44s.xml">
+      <configuration name="CityDaoTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CityDaoTests - 2019.03.27 at 22h 24m 14s.xml">
+      <configuration name="CityDaoTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CityDaoTests - 2019.03.27 at 22h 24m 41s.xml">
+      <configuration name="CityDaoTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CityDaoTests - 2019.03.27 at 22h 27m 01s.xml">
+      <configuration name="CityDaoTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StateDaoTests - 2019.03.27 at 22h 27m 52s.xml">
+      <configuration name="StateDaoTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CityDaoTests - 2019.03.27 at 22h 28m 07s.xml">
+      <configuration name="CityDaoTests" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14753000" />
+    <option name="totallyTimeSpent" value="20989000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26308724" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -354,13 +459,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/java/cz/tul/OffersDaoTests.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/User.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Offer.java" />
@@ -369,13 +467,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="56" lean-forward="true" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-527">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -393,27 +484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/cz/tul/StateDaoTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-193">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/cz/tul/CityDaoTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/application-test.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Lecture5_SpringJDBC/develdb.script">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -427,38 +497,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="333" selection-start-line="333" selection-end-line="333" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/application-test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="e#385#386#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/StateDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state>
+          <caret column="63" selection-start-column="63" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/City.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+        <state relative-caret-position="521">
+          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
           <folding>
             <element signature="e#145#146#0" expanded="true" />
             <element signature="e#173#174#0" expanded="true" />
@@ -466,24 +543,70 @@
             <element signature="e#248#249#0" expanded="true" />
             <element signature="e#643#644#0" expanded="true" />
             <element signature="e#683#684#0" expanded="true" />
+            <element signature="e#836#837#0" expanded="true" />
+            <element signature="e#879#880#0" expanded="true" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1365#1366#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/CityDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/State.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="323">
+          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="49" column="10" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
+        <state relative-caret-position="198">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/cz/tul/CityDaoTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/CityDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/StateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/cz/tul/StateDaoTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

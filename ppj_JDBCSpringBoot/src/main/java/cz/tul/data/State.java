@@ -1,5 +1,7 @@
 package cz.tul.data;
 
+import java.util.Objects;
+
 public class State {
     private String stateName;
 
@@ -16,6 +18,19 @@ public class State {
 
     public String getStateName() {
         return stateName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof State)) return false;
+        State state = (State) o;
+        return Objects.equals(getStateName(), state.getStateName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getStateName());
     }
 
     @Override

@@ -30,17 +30,17 @@ public class StateDaoTests {
 
         stateDao.deleteStates();
 
-        State state = new State("Amerikaa");
+        State state = new State("Amerika");
 
         assertTrue("User creation should return true", stateDao.create(state));
 
         List<State> states = stateDao.getAllStates();
 
-        assertEquals("Number of users should be 1.", 1, states.size());
+        assertEquals("Number of states should be 1.", 1, states.size());
 
-        assertTrue("User should exist.", stateDao.exists(state.getStateName()));
+        assertTrue("State should exist.", stateDao.exists(state.getStateName()));
 
-        assertEquals("Created user should be identical to retrieved user",
+        assertEquals("Created state should be identical to retrieved state",
                 state, states.get(0));
 
     }

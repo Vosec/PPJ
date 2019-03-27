@@ -23,7 +23,7 @@ public class StateDao {
         return jdbc.update("insert into states (statename) values (:statename)", params) == 1;
     }
     public boolean exists(String stateName) {
-        return jdbc.queryForObject("select count(*) from states where stateName=:stateName",
+        return jdbc.queryForObject("select count(*) from states where stateName=:statename",
                 new MapSqlParameterSource("statename", stateName), Integer.class) > 0;
     }
 

@@ -33,7 +33,7 @@ public class CityDao {
         BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
                 city);
 
-        return jdbc.update("update cities set cityname=:cityname where id=:id", params) == 1;
+        return jdbc.update("update cities set cityname=:cityName where id=:id", params) == 1;
     }
 
 
@@ -47,16 +47,6 @@ public class CityDao {
                         params) == 1;
     }
 
-    @Transactional
-    public int[] create(List<City> cities) {
-
-        SqlParameterSource[] params = SqlParameterSourceUtils
-                .createBatch(cities.toArray());
-
-        return jdbc
-                .batchUpdate("insert into cities (statename, cityname) values (:stateName, :cityName)", params);
-    }
-
     public boolean delete(int id) {
         MapSqlParameterSource params = new MapSqlParameterSource("id", id);
 
@@ -68,7 +58,7 @@ public class CityDao {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
 
-        return jdbc.queryForObject("select * from cities, states where cities.statename=states.statename and and id=:id", params,
+        return jdbc.queryForObject("select * from cities, states where cities.statename=states.statename and id=:id", params,
                 new RowMapper<City>() {
 
                     public City mapRow(ResultSet rs, int rowNum)

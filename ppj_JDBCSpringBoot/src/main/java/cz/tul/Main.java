@@ -13,8 +13,6 @@ import java.util.List;
 @SpringBootApplication
 public class Main {
 
-
-
     @Bean
     public CityDao cityDao() {return new CityDao();}
 
@@ -43,7 +41,7 @@ public class Main {
         //System.out.println(states);
 
 
-        State s = new State("France");
+        //State s = new State("France");
         //stateDao.create(s);
 
         //City c = new City("Louvre", s);
