@@ -4,6 +4,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "cities")
@@ -60,6 +61,21 @@ public class City {
 
     public String getStateName() {
         return state.getStateName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof City)) return false;
+        City city = (City) o;
+        return getId() == city.getId() &&
+                Objects.equals(getCityName(), city.getCityName()) &&
+                Objects.equals(getState(), city.getState());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getCityName(), getState());
     }
 
     @Override

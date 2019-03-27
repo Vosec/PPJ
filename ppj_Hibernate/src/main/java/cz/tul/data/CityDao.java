@@ -26,7 +26,7 @@ public class CityDao {
         Criteria crit = session().createCriteria(City.class);
 
         crit.createAlias("state", "s");
-        crit.add(Restrictions.eq("s.statename", statename));
+        crit.add(Restrictions.eq("s.stateName", statename));
 
         return crit.list();
     }
