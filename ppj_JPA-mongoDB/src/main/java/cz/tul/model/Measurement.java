@@ -19,22 +19,17 @@ public class Measurement {
     private String cityName;
     //Pro tu 14ti denni expiraci
     private Date saveTime = new Date();
+    private int cityId;
 
 
-    public String getCityName() {
-        return cityName;
-    }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
     public Measurement() {
     }
 
 
 
-    public Measurement(ObjectId id, double temperature, double humidity, double pressure, String cityName, Date saveTime) {
-        this.id = id;
+    public Measurement(int cityId, double temperature, double humidity, double pressure, String cityName, Date saveTime) {
+        this.cityId = cityId;
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
@@ -48,6 +43,14 @@ public class Measurement {
         this.pressure = pressure;
         this.cityName = cityName;
         this.saveTime = saveTime;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     public ObjectId getId() {

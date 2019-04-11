@@ -23,7 +23,7 @@ public class City {
 
     //pro id získané z rest api
     @Column(name = "cityid")
-    private long cityId;
+    private int cityId;
 
 
     public State getState() {
@@ -34,13 +34,13 @@ public class City {
         this.state = state;
     }
 
-    public City(int id, String cityName, State state, long cityId) {
+    public City(int id, String cityName, State state, int cityId) {
         this.id = id;
         this.cityName = cityName;
         this.state = state;
         this.cityId = cityId;
     }
-    public City(String cityName, State state, long cityId) {
+    public City(String cityName, State state, int cityId) {
         this.cityName = cityName;
         this.state = state;
         this.cityId = cityId;
@@ -88,7 +88,7 @@ public class City {
         return cityId;
     }
 
-    public void setCityId(long cityId) {
+    public void setCityId(int cityId) {
         this.cityId = cityId;
     }
 

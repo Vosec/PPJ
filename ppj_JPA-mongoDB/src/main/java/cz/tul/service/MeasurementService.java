@@ -34,5 +34,8 @@ public class MeasurementService {
     public List<Measurement> getMeasByCityName(String cityName){
         return measurementRepository.findByCityName(cityName);
     }
+    public List<Measurement> getMeasByCityId(int cityId){
+        return measurementRepository.findByCityId(cityId);
+    }
 
 }

@@ -16,7 +16,7 @@ import static org.junit.Assert.assertFalse;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Main.class})
-@ActiveProfiles({"test"})
+@ActiveProfiles({"devel"})
 public class StateServiceTests {
 
     @Autowired

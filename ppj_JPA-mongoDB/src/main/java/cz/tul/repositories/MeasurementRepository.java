@@ -9,6 +9,6 @@ import java.util.List;
 public interface MeasurementRepository extends MongoRepository<Measurement, ObjectId> {
 
     List<Measurement> findByCityName(String cityName);
-
+    List<Measurement> findByCityId(int cityId);
 
 }
