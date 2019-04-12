@@ -10,5 +10,8 @@ public interface MeasurementRepository extends MongoRepository<Measurement, Obje
 
     List<Measurement> findByCityName(String cityName);
     List<Measurement> findByCityId(int cityId);
+    void deleteAll();
+    List<Measurement> findAll();
+
 
 }

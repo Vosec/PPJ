@@ -26,7 +26,13 @@ public class Measurement {
     public Measurement() {
     }
 
+    public int getCityId() {
+        return cityId;
+    }
 
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
 
     public Measurement(int cityId, double temperature, double humidity, double pressure, String cityName, Date saveTime) {
         this.cityId = cityId;

@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Main.class})
-@ActiveProfiles({"devel"})
+@ActiveProfiles({"test"})
 public class CityServiceTests {
 
     @Autowired

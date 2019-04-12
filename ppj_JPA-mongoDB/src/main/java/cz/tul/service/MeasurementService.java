@@ -38,4 +38,12 @@ public class MeasurementService {
         return measurementRepository.findByCityId(cityId);
     }
 
+    public void deleteAll(){
+        measurementRepository.deleteAll();
+    }
+    public List<Measurement> findAll(){
+        return measurementRepository.findAll();
+    }
+
+
 }
