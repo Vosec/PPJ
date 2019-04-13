@@ -70,13 +70,9 @@
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <!-- Aby se embeded mongo spouštěla jen při testech -->
+            <scope>test</scope>
             <version>1.50.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cz.jirutka.spring</groupId>
-            <artifactId>embedmongo-spring</artifactId>
-            <version>RELEASE</version>
         </dependency>
 
         <dependency>

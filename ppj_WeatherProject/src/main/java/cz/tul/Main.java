@@ -4,6 +4,7 @@ import cz.tul.model.*;
 import cz.tul.repositories.CityRepository;
 import cz.tul.repositories.MeasurementRepository;
 import cz.tul.service.CityService;
+import cz.tul.service.DownloadService;
 import cz.tul.service.MeasurementService;
 import cz.tul.service.StateService;
 import org.springframework.boot.SpringApplication;
@@ -20,13 +21,11 @@ import java.util.List;
 @EntityScan("cz.tul.model")
 public class Main {
 
-
-    //proběhne ok při profilu prod
-    //při profilu devel je třeba vytvořit provisionera
     public static void main(String[] args) throws Exception {
         SpringApplication app = new SpringApplication(Main.class);
         ApplicationContext ctx = app.run(args);
 
+        /*
         Date d = new Date();
         MeasurementRepository mRepo = ctx.getBean(MeasurementRepository.class);
         CityRepository c = ctx.getBean(CityRepository.class);
@@ -38,8 +37,10 @@ public class Main {
 
         List<Measurement> m = mRepo.findByCityName("Praha");
         System.out.println(m);
-
-
+        */
+        DownloadService d = new DownloadService();
+        String s = d.downloadDataForCity(5);
+        System.out.println(s);
 
 
 
