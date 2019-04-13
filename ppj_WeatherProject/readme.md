@@ -1,0 +1,1 @@
+Toto je složka semestárálního projektu. Základ je použit z ppj_JPA složky.
