@@ -1,2 +1,0 @@
-Od tohoto repozitáře dál ->(rest, mvc) je upravena mySQL DB, kde byl přidán atribut, aby to sedělo na celkový semestrální projekt. Takže počínaje tímto repozitářem,
-všechny další již budou odpovídat struktuře semestrálního projektu a postupně budu přidávat další, které budou rozšířením toho předchozího.
