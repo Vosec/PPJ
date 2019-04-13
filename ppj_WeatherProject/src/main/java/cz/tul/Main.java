@@ -38,9 +38,10 @@ public class Main {
         List<Measurement> m = mRepo.findByCityName("Praha");
         System.out.println(m);
         */
-        DownloadService d = new DownloadService();
-        String s = d.downloadDataForCity(5);
-        System.out.println(s);
+
+        DownloadService d = ctx.getBean(DownloadService.class);
+        //String s = d.downloadDataForCity(5);
+        //System.out.println(s);
 
 
 
