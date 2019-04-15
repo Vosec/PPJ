@@ -40,8 +40,8 @@ public class Main {
         */
 
         DownloadService d = ctx.getBean(DownloadService.class);
-        //String s = d.downloadDataForCity(5);
-        //System.out.println(s);
+        Measurement m = d.getDataForCityId(3071961);
+        System.out.println(m);
 
 
 

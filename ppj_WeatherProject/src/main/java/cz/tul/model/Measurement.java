@@ -5,10 +5,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Id;
 import java.util.Date;
 
-
 @Document(collection = "measurement")
 public class Measurement {
-    //Dokumenty budou asi muset mít: id, čas, teplotu, vlhkost, tlak, název město
 
     @Id
     private ObjectId id;
@@ -19,9 +17,8 @@ public class Measurement {
     private String cityName;
     //Pro tu 14ti denni expiraci
     private Date saveTime = new Date();
+
     private int cityId;
-
-
 
     public Measurement() {
     }
@@ -43,12 +40,12 @@ public class Measurement {
         this.saveTime = saveTime;
     }
 
-    public Measurement(double temperature, double humidity, double pressure, String cityName, Date saveTime) {
+    public Measurement(int cityId, double temperature, double humidity, double pressure, String cityName) {
+        this.cityId = cityId;
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
         this.cityName = cityName;
-        this.saveTime = saveTime;
     }
 
     public String getCityName() {
@@ -102,7 +99,7 @@ public class Measurement {
     @Override
     public String toString() {
         return "Measurement{" +
-                "id=" + id +
+                "cityId=" + cityId +
                 ", temperature=" + temperature +
                 ", humidity=" + humidity +
                 ", pressure=" + pressure +
