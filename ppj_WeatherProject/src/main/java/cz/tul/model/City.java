@@ -26,6 +26,7 @@ public class City {
     private int cityId;
 
 
+
     public State getState() {
         return state;
     }
@@ -53,7 +54,7 @@ public class City {
         this.id = id;
     }
 
-    public void setName(String cityName) {
+    public void setCityName(String cityName) {
         this.cityName = cityName;
     }
 
@@ -67,6 +68,9 @@ public class City {
 
     public String getStateName() {
         return state.getStateName();
+    }
+    public void setStateName(String stateName) {
+        this.state.setStateName(stateName);
     }
 
     @Override

@@ -16,14 +16,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 @SpringBootApplication
-@EnableJpaRepositories("cz.tul.repositories")
-@EntityScan("cz.tul.model")
+//@EnableJpaRepositories("cz.tul.repositories")
+//@EntityScan("cz.tul.model")
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication app = new SpringApplication(Main.class);
-        ApplicationContext ctx = app.run(args);
+    public static void main(String[] args) {
+        //SpringApplication app = new SpringApplication(Main.class);
+        //ApplicationContext ctx = app.run(args);
+        SpringApplication.run(Main.class, args);
 
         /*
         Date d = new Date();
@@ -39,9 +41,9 @@ public class Main {
         System.out.println(m);
         */
 
-        DownloadService d = ctx.getBean(DownloadService.class);
-        Measurement m = d.getDataForCityId(3071961);
-        System.out.println(m);
+        //DownloadService d = ctx.getBean(DownloadService.class);
+        //Measurement m = d.getDataForCityId(3071961);
+        //System.out.println(m);
 
 
 

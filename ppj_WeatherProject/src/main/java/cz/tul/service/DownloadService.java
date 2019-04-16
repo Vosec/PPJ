@@ -17,6 +17,7 @@ import java.util.Date;
 public class DownloadService {
     //limit pro volání je 60 za minutu - TODO: udělat metodu pro nějaký počítání?
     private int counter;
+    //možnosti: default (bez specifikace) - Kelvin, imperial pro Fahrenheit, metric pro Celsius
     private static final String units = "metric";
 
     @Value("${download.apikey}")

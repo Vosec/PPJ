@@ -1,5 +1,6 @@
 package cz.tul;
 
+import cz.tul.api.RestApi;
 import cz.tul.model.*;
 import cz.tul.service.CityService;
 import cz.tul.service.StateService;
@@ -10,7 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -20,12 +26,19 @@ import static org.junit.Assert.*;
 @SpringApplicationConfiguration(classes = {Main.class})
 @ActiveProfiles({"test"})
 public class CityServiceTests {
+    //https://square.github.io/retrofit/
+    private final String TEST_URL = "http://localhost:8080";
+    private Retrofit retrofit = new Retrofit.Builder().baseUrl(TEST_URL).addConverterFactory(JacksonConverterFactory.create()).build();
+    private RestApi restService = retrofit.create(RestApi.class);
+
 
     @Autowired
-    private StateService stateDao;
+    private StateService stateService;
 
     @Autowired
-    private CityService cityDao;
+    private CityService cityService;
+
+
 
     private State state1 = new State("Amerika");
     private State state2 = new State("Slovensko");
@@ -39,12 +52,36 @@ public class CityServiceTests {
     private City city4 = new City("Londýn", state3, 5646);
     private City city5 = new City("Berlín", state4, 5654);
 
-    @Before
-    public void init() {
-        cityDao.deleteCities();
-        stateDao.deleteStates();
+
+
+    //TODO: Testy jdou spustit když běží server :) už jen dodělat testy, ale až po tom co budu mít metody
+    // Hází to data z DB
+    @Test
+    public void getCities() throws IOException {
+        List<City> cities = new ArrayList<>();
+        stateService.create(state1);
+        stateService.create(state2);
+        cities.add(city1);
+        cities.add(city2);
+
+        cityService.saveOrUpdate(city1);
+        cityService.saveOrUpdate(city2);
+        Response<List<City>> execute = restService.getCities().execute();
+        List<City> result = execute.body();
+        System.out.println(result);
+        assertNotNull("Result is null!", result);
+        List<City> all = cityService.getCities();
+        System.out.println(all);
+        assertEquals("Result should have same number of items!", result.size(), all.size());
 
     }
+    /*
+     @Before
+     public void init() {
+     cityService.deleteCities();
+     stateService.deleteStates();
+
+     }
 
     @Test
     public void testDelete() {
@@ -145,7 +182,7 @@ public class CityServiceTests {
         List<City> cities3 = cityDao.getCityByName(city2.getCityName());
         assertEquals("Should be 1 city", 1, cities3.size());
     }
-
+    **/
 
 
 
