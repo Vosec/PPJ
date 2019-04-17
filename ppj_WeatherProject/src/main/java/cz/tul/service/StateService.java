@@ -18,6 +18,14 @@ public class StateService {
         stateRepository.save(state);
     }
 
+    public State save(State state) {
+        return stateRepository.save(state);
+    }
+
+    public State get(String stateName){
+        return stateRepository.findOne(stateName);
+    }
+
     public boolean exists(String statename) {
         return stateRepository.exists(statename);
     }
@@ -29,6 +37,8 @@ public class StateService {
     public void deleteStates() {
         stateRepository.deleteAll();
     }
+
+    public void deleteState(State state){stateRepository.delete(state);}
 }
 
 

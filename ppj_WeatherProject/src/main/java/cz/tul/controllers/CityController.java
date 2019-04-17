@@ -23,8 +23,8 @@ public class CityController {
 
     @RequestMapping(value = RestApi.CITIES_PATH, method = RequestMethod.GET)
     public ResponseEntity<List<City>> getCities() {
-        List<City> states = cityService.getCities();
-        return new ResponseEntity<>(states, HttpStatus.OK);
+        List<City> cities = cityService.getCities();
+        return new ResponseEntity<>(cities, HttpStatus.OK);
     }
 
 }
