@@ -46,11 +46,12 @@ public class StateController {
         }
     }
 
-    //asi nefunguje??
     @RequestMapping(value = RestApi.STATE_PATH, method = RequestMethod.POST)
     public ResponseEntity<State> updateState(@RequestBody State state) {
         State requestedState = stateService.get(state.getStateName());
         if (requestedState != null) {
+            //nwm jestli je to tak OK nejdřív smazat, vytvořit nové
+            stateService.deleteState(requestedState);
             State updatedState = stateService.save(state);
             return new ResponseEntity<>(updatedState, HttpStatus.OK);
         } else {

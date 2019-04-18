@@ -12,7 +12,7 @@ import java.util.List;
 public interface CityRepository extends CrudRepository<City, Integer> {
 
     List<City> findByCityName(@Param("cityname") String cityname);
-    City findByCityId(@Param("cityid") Long cityId);
+    City findByCityId(@Param("cityid") int cityId);
 
     //zkouška query :)
     @Query("select c from City as c where state.stateName=:stateName")

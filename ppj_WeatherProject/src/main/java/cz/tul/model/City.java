@@ -88,7 +88,7 @@ public class City {
         return Objects.hash(getId(), getCityName(), getState());
     }
 
-    public long getCityId() {
+    public int getCityId() {
         return cityId;
     }
 

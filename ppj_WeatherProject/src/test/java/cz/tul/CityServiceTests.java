@@ -60,19 +60,19 @@ public class CityServiceTests {
     public void getCities() throws IOException {
         List<City> cities = new ArrayList<>();
         stateService.create(state1);
-        stateService.create(state2);
+        cityService.create(city1);
+        cityService.create(city2);
         cities.add(city1);
         cities.add(city2);
 
-        cityService.saveOrUpdate(city1);
-        cityService.saveOrUpdate(city2);
+
         Response<List<City>> execute = restService.getCities().execute();
         List<City> result = execute.body();
         System.out.println(result);
-        assertNotNull("Result is null!", result);
+        assertNotNull("Result should not be null", result);
         List<City> all = cityService.getCities();
         System.out.println(all);
-        assertEquals("Result should have same number of items!", result.size(), all.size());
+        assertNotEquals("Result should not have same size", result.size(), all.size());
 
     }
     /*

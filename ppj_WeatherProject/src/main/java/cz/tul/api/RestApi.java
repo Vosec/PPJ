@@ -12,11 +12,11 @@ import java.util.List;
 //Retrofit - https://www.vogella.com/tutorials/Retrofit/article.html
 public interface RestApi {
     String CITIES_PATH = "/cities";
-    String CITY_PATH = CITIES_PATH + "/{id}";
+    String CITY_PATH = CITIES_PATH + "/{cityId}";
     String STATES_PATH = "/states";
     String STATE_PATH = STATES_PATH + "/{stateName}";
     String MEASUREMENTS_PATH = "/measurements";
-    String MEASUREMENT_PATH = MEASUREMENTS_PATH + "/{id}";
+    String MEASUREMENT_PATH = MEASUREMENTS_PATH + "/{cityId}";
 
 
     //states
@@ -31,22 +31,62 @@ public interface RestApi {
     @POST(STATES_PATH)
     Call<State> createState(@Body State state);
 
-    //asi nefunguje??
+    //nwm jestli je správně
     @POST(STATE_PATH)
     Call<State> updateState(@Body State state);
 
     //states/Greece
     @DELETE(STATE_PATH)
-    Call<State> deleteState(@Path("stateName") String stateName);
+    Call<Void> deleteState(@Path("stateName") String stateName);
 
-
-
-
-
+    //************************************************************************************************
+    //cities
     @GET(CITIES_PATH)
     Call<List<City>> getCities();
 
+    //cities/155645
+    @GET(CITY_PATH)
+    Call<City> getCity(@Path("cityId") int cityId);
+
+    //musí existovat nejdříve stát!
+    //{
+    //	"cityName": "Oxford",
+    //	"state": {
+    //	"stateName": "United Kingdom"
+    //  },
+    //  "cityId": 123456,
+    //  "stateName": "United Kingdom"
+    //}
+    @POST(CITIES_PATH)
+    Call<State> createCity(@Body City city);
+
+    //
+    @POST(CITY_PATH)
+    Call<State> updateCity(@Body City city);
+
+    //nwm jestli je správně
+    //cities/156165
+    @DELETE(CITY_PATH)
+    Call<Void> deleteCity(@Path("cityId") int cityId);
+
+    //************************************************************************************************
+    //measurements
     @GET(MEASUREMENTS_PATH)
     Call<List<Measurement>> getMeasurements();
+
+    //TODO: Podle čeho získat konkrétní measurement?
+   //@GET(MEASUREMENT_PATH)
+    //Call<Measurement> getMeasurement(@Path("id") String id);
+
+    @POST(MEASUREMENTS_PATH)
+    Call<List<Measurement>> createMeasurement(@Body Measurement Measurement);
+
+    //@POST(MEASUREMENT_PATH)
+    //Call<Measurement> updateMeasurement(@Body Measurement Measurement);
+
+    //@DELETE(MEASUREMENT_PATH)
+    //Call<Void> deleteMeasurement(@Path("cityId") int cityId);
+
+    //TODO: Actual, Avg measurements
 
 }
