@@ -3,6 +3,7 @@ package cz.tul.api;
 import cz.tul.model.City;
 import cz.tul.model.Measurement;
 import cz.tul.model.State;
+import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.RequestMapping;
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -16,7 +17,7 @@ public interface RestApi {
     String STATES_PATH = "/states";
     String STATE_PATH = STATES_PATH + "/{stateName}";
     String MEASUREMENTS_PATH = "/measurements";
-    String MEASUREMENT_PATH = MEASUREMENTS_PATH + "/{cityId}";
+    String MEASUREMENT_PATH = MEASUREMENTS_PATH + "/{id}";
 
 
     //states
@@ -31,7 +32,7 @@ public interface RestApi {
     @POST(STATES_PATH)
     Call<State> createState(@Body State state);
 
-    //nwm jestli je správně
+
     @POST(STATE_PATH)
     Call<State> updateState(@Body State state);
 
@@ -64,7 +65,7 @@ public interface RestApi {
     @POST(CITY_PATH)
     Call<State> updateCity(@Body City city);
 
-    //nwm jestli je správně
+
     //cities/156165
     @DELETE(CITY_PATH)
     Call<Void> deleteCity(@Path("cityId") int cityId);
@@ -74,18 +75,27 @@ public interface RestApi {
     @GET(MEASUREMENTS_PATH)
     Call<List<Measurement>> getMeasurements();
 
-    //TODO: Podle čeho získat konkrétní measurement?
-   //@GET(MEASUREMENT_PATH)
-    //Call<Measurement> getMeasurement(@Path("id") String id);
+    @GET(MEASUREMENT_PATH)
+    Call<Measurement> getMeasurement(@Path("id") ObjectId id);
 
     @POST(MEASUREMENTS_PATH)
     Call<List<Measurement>> createMeasurement(@Body Measurement Measurement);
 
-    //@POST(MEASUREMENT_PATH)
-    //Call<Measurement> updateMeasurement(@Body Measurement Measurement);
+    //localhost:8080/measurements/5cb98fe677a3978e0a56fa4e
+    // {
+    //	 "id": "5cb98fe677a3978e0a56fa4e",
+    //    "temperature": 156.0,
+    //    "humidity": 20.0,
+    //    "pressure": 60.0,
+    //    "cityName": "Oxford",
+    //    "saveTime": 1555620956671,
+    //    "cityId": 123456
+    //  }
+    @POST(MEASUREMENT_PATH)
+    Call<Measurement> updateMeasurement(@Body Measurement Measurement);
 
-    //@DELETE(MEASUREMENT_PATH)
-    //Call<Void> deleteMeasurement(@Path("cityId") int cityId);
+    @DELETE(MEASUREMENT_PATH)
+    Call<Void> deleteMeasurement(@Path("id") ObjectId id);
 
     //TODO: Actual, Avg measurements
 

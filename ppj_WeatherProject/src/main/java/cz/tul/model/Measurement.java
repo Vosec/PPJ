@@ -56,9 +56,12 @@ public class Measurement {
         this.cityName = cityName;
     }
 
-    public ObjectId getId() {
-        return id;
+    //vracim hexString, abych v json http response viděl jen to Id a ne celej object (jinak se to id neukazalo)
+    public String getId() {
+        return id.toHexString();
     }
+
+    public ObjectId getIdObj(){return id;}
 
     public void setId(ObjectId id) {
         this.id = id;
@@ -99,6 +102,7 @@ public class Measurement {
     @Override
     public String toString() {
         return "Measurement{" +
+                "objectId=" + id +
                 "cityId=" + cityId +
                 ", temperature=" + temperature +
                 ", humidity=" + humidity +

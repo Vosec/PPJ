@@ -3,6 +3,7 @@ package cz.tul.service;
 import cz.tul.model.Measurement;
 import cz.tul.repositories.CityRepository;
 import cz.tul.repositories.MeasurementRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,12 @@ public class MeasurementService {
     public List<Measurement> findAll(){
         return measurementRepository.findAll();
     }
+
+    public Measurement getMeasurement(ObjectId id){return measurementRepository.findOne(id);}
+
+    public void deleteMeasurement(Measurement measurement){measurementRepository.delete(measurement);}
+
+    public Measurement save(Measurement measurement){return measurementRepository.save(measurement);}
 
 
 }
