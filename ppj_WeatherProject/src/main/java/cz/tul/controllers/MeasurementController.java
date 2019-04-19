@@ -2,6 +2,7 @@ package cz.tul.controllers;
 
 import cz.tul.api.RestApi;
 import cz.tul.model.Measurement;
+import cz.tul.service.MeasurementAvg;
 import cz.tul.service.MeasurementService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,29 @@ public class MeasurementController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @RequestMapping(value = RestApi.AVG_MEASUREMENT_PATH, method = RequestMethod.GET)
+    public ResponseEntity<MeasurementAvg> getAvgMeasurement(@PathVariable("cityId") int cityId, @RequestParam(value = "from") String from) {
+        MeasurementAvg measurementAvg;
+        if(from.equals("day")){
+            measurementAvg = measurementService.MeasurementAvgOneDay(cityId);
+        } else if (from.equals("one_week")){
+            measurementAvg = measurementService.MeasurementAvgOneWeek(cityId);
+        } else if (from.equals("two_weeks")){
+            measurementAvg = measurementService.MeasurementAvgTwoWeeks(cityId);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(measurementAvg, HttpStatus.OK);
+    }
+    @RequestMapping(value = RestApi.ACTUAL_MEASUREMENT_PATH, method = RequestMethod.GET)
+    public ResponseEntity<Measurement> getActualMeasurement(@PathVariable("cityId") int cityId) {
+        Measurement measurement = measurementService.getActualMeasurement(cityId);
+        if (measurement != null) {
+            return new ResponseEntity<>(measurement, HttpStatus.OK);
+        } else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
 
-
+    }
 }

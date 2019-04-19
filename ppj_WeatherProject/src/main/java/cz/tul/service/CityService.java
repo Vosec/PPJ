@@ -28,24 +28,6 @@ public class CityService {
 
     public boolean exists(int cityId){return cityRepository.exists(cityId);}
 
-
-    public List<City> getCityByName(String cityname) {
-
-        if (cityname == null) {
-            return null;
-        }
-
-        List<City> cities = cityRepository.findByCityName(cityname);
-
-        return cities;
-    }
-
-
-    public City getCity(Integer id) {
-        return cityRepository.findOne(id);
-    }
-
-
     public void delete(City city) {
             cityRepository.delete(city);
     }

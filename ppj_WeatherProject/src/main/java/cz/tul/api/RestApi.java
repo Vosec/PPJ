@@ -3,8 +3,8 @@ package cz.tul.api;
 import cz.tul.model.City;
 import cz.tul.model.Measurement;
 import cz.tul.model.State;
+import cz.tul.service.MeasurementAvg;
 import org.bson.types.ObjectId;
-import org.springframework.web.bind.annotation.RequestMapping;
 import retrofit2.Call;
 import retrofit2.http.*;
 
@@ -18,6 +18,8 @@ public interface RestApi {
     String STATE_PATH = STATES_PATH + "/{stateName}";
     String MEASUREMENTS_PATH = "/measurements";
     String MEASUREMENT_PATH = MEASUREMENTS_PATH + "/{id}";
+    String AVG_MEASUREMENT_PATH = "/avg-measurements" + "/{cityId}";
+    String ACTUAL_MEASUREMENT_PATH = "/actual-measurements" + "/{cityId}";
 
 
     //states
@@ -61,10 +63,8 @@ public interface RestApi {
     @POST(CITIES_PATH)
     Call<State> createCity(@Body City city);
 
-    //
     @POST(CITY_PATH)
     Call<State> updateCity(@Body City city);
-
 
     //cities/156165
     @DELETE(CITY_PATH)
@@ -97,6 +97,11 @@ public interface RestApi {
     @DELETE(MEASUREMENT_PATH)
     Call<Void> deleteMeasurement(@Path("id") ObjectId id);
 
-    //TODO: Actual, Avg measurements
+    //localhost:8080/avg-measurements/123456?from=one_week
+    @GET(AVG_MEASUREMENT_PATH)
+    Call<MeasurementAvg> getAvgMeasurement(@Path("cityId") int cityId, @Query("from") String from);
+
+    @GET(ACTUAL_MEASUREMENT_PATH)
+    Call<Measurement> getActualMeasurement(@Path("cityId") int cityId);
 
 }
