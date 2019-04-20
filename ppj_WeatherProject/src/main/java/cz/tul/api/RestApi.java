@@ -61,10 +61,10 @@ public interface RestApi {
     //  "stateName": "United Kingdom"
     //}
     @POST(CITIES_PATH)
-    Call<State> createCity(@Body City city);
+    Call<City> createCity(@Body City city);
 
     @POST(CITY_PATH)
-    Call<State> updateCity(@Body City city);
+    Call<City> updateCity(@Body City city);
 
     //cities/156165
     @DELETE(CITY_PATH)

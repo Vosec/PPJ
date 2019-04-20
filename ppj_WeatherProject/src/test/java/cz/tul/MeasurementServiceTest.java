@@ -37,7 +37,7 @@ public class MeasurementServiceTest {
     private Measurement m1 = new Measurement(15456,28,113,48,"Praha",d1);
     private Measurement m2 = new Measurement(4554,22,554,33,"Bratislava",d1);
 
-    //TODO: Testy jdou spustit když běží server :) už jen dodělat testy, ale až po tom co budu mít metody
+    //TODO: Testy
     @Test
     public void getMeasurements(){
 

@@ -25,7 +25,6 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Main.class})
-//@SpringBootTest(classes = {Main.class})
 @ActiveProfiles({"test"})
 public class CityServiceTests {
     //https://square.github.io/retrofit/
@@ -33,14 +32,11 @@ public class CityServiceTests {
     private Retrofit retrofit = new Retrofit.Builder().baseUrl(TEST_URL).addConverterFactory(JacksonConverterFactory.create()).build();
     private RestApi restService = retrofit.create(RestApi.class);
 
-
     @Autowired
     private StateService stateService;
 
     @Autowired
     private CityService cityService;
-
-
 
     private State state1 = new State("Amerika");
     private State state2 = new State("Slovensko");
@@ -54,138 +50,65 @@ public class CityServiceTests {
     private City city4 = new City("Londýn", state3, 5646);
     private City city5 = new City("Berlín", state4, 5654);
 
+    @Before
+    public void init() {
+        cityService.deleteCities();
+        stateService.deleteStates();
+    }
 
-
-    //TODO: Testy jdou spustit když běží server :) už jen dodělat testy, ale až po tom co budu mít metody
-    // Hází to data z DB
     @Test
     public void getCities() throws IOException {
         List<City> cities = new ArrayList<>();
         stateService.create(state1);
         cityService.create(city1);
-        cityService.create(city2);
+
         cities.add(city1);
-        cities.add(city2);
 
 
         Response<List<City>> execute = restService.getCities().execute();
         List<City> result = execute.body();
-        System.out.println(result);
         assertNotNull("Result should not be null", result);
         List<City> all = cityService.getCities();
-        System.out.println(all);
-        assertNotEquals("Result should not have same size", result.size(), all.size());
-
-    }
-    /*
-     @Before
-     public void init() {
-     cityService.deleteCities();
-     stateService.deleteStates();
-
-     }
-
-    @Test
-    public void testDelete() {
-        stateDao.create(state1);
-        stateDao.create(state2);
-        stateDao.create(state3);
-        stateDao.create(state4);
-        cityDao.saveOrUpdate(city2);
-        cityDao.saveOrUpdate(city3);
-        cityDao.saveOrUpdate(city4);
-        cityDao.saveOrUpdate(city5);
-
-
-        City retrieved1 = cityDao.getCity(city2.getId());
-        assertNotNull("City with ID " + retrieved1.getId() + " should not be null (deleted, actual)", retrieved1);
-
-        cityDao.delete(city2.getId());
-
-        City retrieved2 = cityDao.getCity(city2.getId());
-        assertNull("City with ID " + retrieved1.getId() + " should be null (deleted, actual)", retrieved2);
-    }
-    @Test
-    public void testGetById() {
-        stateDao.create(state1);
-        stateDao.create(state2);
-        stateDao.create(state3);
-        stateDao.create(state4);
-        cityDao.saveOrUpdate(city1);
-        cityDao.saveOrUpdate(city2);
-        cityDao.saveOrUpdate(city3);
-        cityDao.saveOrUpdate(city4);
-        cityDao.saveOrUpdate(city5);
-
-
-        City retrieved1 = cityDao.getCity(city1.getId());
-        assertEquals("Cities should match", city1, retrieved1);
+        assertEquals("Result should be one", 1, all.size());
 
     }
     @Test
-    public void testCreateRetrieve() {
-        stateDao.create(state1);
-        stateDao.create(state2);
-        stateDao.create(state3);
-        stateDao.create(state4);
+    public void testCreateCity() throws IOException {
+        stateService.create(state1);
+        cityService.create(city1);
+        Response<State> s = restService.createState(state1).execute();
+        Response<City> response = restService.createCity(city1).execute();
+        City created = cityService.getCityByCityId(city1.getCityId());
+        assertNotNull("Response should not be null", response.body());
+        assertEquals("Created City does equals", city1.getCityName(), response.body().getCityName());
+    }
 
-        cityDao.saveOrUpdate(city1);
-
-        List<City> cities1 = cityDao.getCities();
-        assertEquals("Should be one city.", 1, cities1.size());
-
-        assertEquals("Retrieved city should equal inserted user.", city1,
-                cities1.get(0));
-
-        cityDao.saveOrUpdate(city2);
-        cityDao.saveOrUpdate(city3);
-        cityDao.saveOrUpdate(city4);
-        cityDao.saveOrUpdate(city5);
-
-
-        List<City> cities2 = cityDao.getCities();
-        assertEquals("Should be five cities", 5,
-                cities2.size());
+    @Test
+    public void testGetCity() throws IOException{
+        stateService.create(state1);
+        cityService.create(city1);
+        City city = cityService.getCityByCityId(city1.getCityId());
+        Response<City> response = restService.getCity(city.getCityId()).execute();
+        City cityR = response.body();
+        assertNotNull("Response should not be null", cityR);
+        assertEquals("Created City does equals", city.getCityName(), cityR.getCityName());
     }
     @Test
-    public void testUpdate() {
-        stateDao.create(state1);
-        stateDao.create(state2);
-        stateDao.create(state3);
-        stateDao.create(state4);
-        cityDao.saveOrUpdate(city2);
-        cityDao.saveOrUpdate(city3);
-        cityDao.saveOrUpdate(city4);
-        cityDao.saveOrUpdate(city5);
-
-
-
-        city3.setName("Praha");
-        cityDao.saveOrUpdate(city3);
-
-        City retrieved = cityDao.getCity(city3.getId());
-        assertEquals("Město 3 by mělo mít název", city3, retrieved);
+    public void testUpdateCity() throws IOException{
+        stateService.create(state1);
+        cityService.create(city1);
+        City city = cityService.getCityByCityId(city1.getCityId());
+        city.setCityName("New York");
+        Response<City> response = restService.updateCity(city).execute();
+        assertNotNull("Response should not be null", response.body());
+        assertEquals("Created City does equals", city.getCityName(), response.body().getCityName());
     }
-    @Test
-    public void testGetCityByName() {
-        stateDao.create(state1);
-        stateDao.create(state2);
-        stateDao.create(state3);
-        stateDao.create(state4);
-
-        cityDao.saveOrUpdate(city1);
-        cityDao.saveOrUpdate(city2);
-        cityDao.saveOrUpdate(city3);
-        cityDao.saveOrUpdate(city4);
-
-        List<City> cities2 = cityDao.getCityByName(city5.getCityName());
-        assertEquals("Should be zero cities", 0, cities2.size());
-
-        List<City> cities3 = cityDao.getCityByName(city2.getCityName());
-        assertEquals("Should be 1 city", 1, cities3.size());
+    public void testDeleteCity() throws IOException{
+        Response<State> s = restService.createState(state2).execute();
+        Response<City> response1 = restService.createCity(city3).execute();
+        restService.deleteCity(response1.body().getCityId()).execute();
+        Response<City> execute = restService.getCity(city3.getCityId()).execute();
+        City city = execute.body();
+        assertNull("should be null", city);
     }
-    **/
-
-
-
 }

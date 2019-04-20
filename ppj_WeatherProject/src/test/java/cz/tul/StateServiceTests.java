@@ -8,17 +8,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
-
+import java.io.IOException;
 import java.util.List;
-import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Main.class})
@@ -41,50 +39,53 @@ public class StateServiceTests {
     private State state3 = new State("Anglie");
     private State state4 = new State("Slovensko");
 
-    //TODO: Testy jdou spustit když běží server :) už jen dodělat testy, ale až po tom co budu mít metody
-    @Test
-    public void getStates(){
-
-    }
-
-    /*
     @Before
     public void init() {
         cityService.deleteCities();
         stateService.deleteStates();
     }
 
-
     @Test
-    public void testCreateRetrieve() {
+    public void createStateTest() throws IOException {
+        //zaroven test pro getAll
         stateService.create(state1);
-
-        List<State> states1 = stateService.getAllStates();
-
-        System.out.println(states1);
-
-        assertEquals("One state should have been created and retrieved", 1, states1.size());
-
-        assertEquals("Inserted state should match retrieved", state1, states1.get(0));
-
-        stateService.create(state2);
-        stateService.create(state3);
-        stateService.create(state4);
-
-        List<State> states2 = stateService.getAllStates();
-
-        assertEquals("Should be four retrieved states.", 4, states2.size());
+        Response<State> response1 = restService.createState(state1).execute();
+        assertNotNull("Should not be null",response1);
+        Response<List<State>> execute = restService.getStates().execute();
+        List<State> states = execute.body();
+        assertEquals("Should be one state",1,states.size());
     }
 
     @Test
-    public void testExists() {
+    public void getStateTest() throws IOException {
         stateService.create(state1);
-        stateService.create(state2);
-        stateService.create(state3);
-
-        assertTrue("State should exist.", stateService.exists(state1.getStateName()));
-        assertFalse("State should not exist.", stateService.exists("Slovinsko"));
+        State states = stateService.get(state1.getStateName());
+        Response<State> execute = restService.getState(states.getStateName()).execute();
+        State state = execute.body();
+        assertNotNull("should not be null", state);
+        assertEquals("should be Amerika","Amerika",state.getStateName());
     }
-    */
+
+    @Test
+    public void updateStateTest() throws IOException{
+        stateService.create(state1);
+        State state = stateService.get(state1.getStateName());
+        state.setStateName("Amerika");
+        Response<State> response = restService.updateState(state).execute();
+        State result = response.body();
+        assertNotNull("Should not be null", result);
+        assertEquals("State name should be updated", state.getStateName(), result.getStateName());
+
+    }
+    @Test
+    public void deleteStateTest() throws IOException {
+        Response<State> response1 = restService.createState(state2).execute();
+        restService.deleteState(state2.getStateName()).execute();
+        Response<State> execute = restService.getState(state2.getStateName()).execute();
+        State state = execute.body();
+        assertNull("should be null", state);
+    }
+
+
 
 }

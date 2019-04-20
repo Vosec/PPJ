@@ -81,8 +81,14 @@
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
             <!-- Aby se embeded mongo spouštěla jen při testech -->
-            <scope>test</scope>
+            <!--<scope>test</scope> -->
             <version>1.50.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cz.jirutka.spring</groupId>
+            <artifactId>embedmongo-spring</artifactId>
+            <version>RELEASE</version>
         </dependency>
 
         <dependency>
@@ -130,6 +136,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
 

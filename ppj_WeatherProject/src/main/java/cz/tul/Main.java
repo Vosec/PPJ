@@ -18,8 +18,8 @@ import java.util.List;
 
 
 @SpringBootApplication
-//@EnableJpaRepositories("cz.tul.repositories")
-//@EntityScan("cz.tul.model")
+@EnableJpaRepositories("cz.tul.repositories")
+@EntityScan("cz.tul.model")
 public class Main {
 
     public static void main(String[] args) {

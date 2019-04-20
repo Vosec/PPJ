@@ -1,7 +1,5 @@
 package cz.tul.service;
 
-import com.mongodb.DBObject;
-import org.bson.Document;
 import org.springframework.data.mongodb.core.query.Criteria;
 import cz.tul.model.Measurement;
 import cz.tul.repositories.CityRepository;
@@ -60,7 +58,7 @@ public class MeasurementService {
 
     public MeasurementAvg MeasurementAvgTwoWeeks(int cityId){return getAverageValues(cityId, twoWeeks());}
 
-    public MeasurementAvg getAverageValues(int cityId, Date date){
+    private MeasurementAvg getAverageValues(int cityId, Date date){
         MeasurementAvg res;
         double totalTemp = 0;
         double totalPress = 0;

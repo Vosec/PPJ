@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>PPJ Measurements</title>
+
+</head>
+<body>
+<h1>PPJ - Semestrální projekt</h1>
+
+<p>Jsem tu</p>
+<tr th:each="state: ${states}">
+    <!--<a th:href="@{'/states  ?name=' + ${state.stateName}}"><p th:text="${state.stateName}"></p></a> -->
+    <a th:href="@{'/avg-measurements/123456?from=one_week'}"><p th:text="${state.stateName}"></p></a>
+
+</tr>
+
+</body>
+</html>
