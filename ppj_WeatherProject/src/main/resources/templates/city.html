@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>PPJ Semestral project</title>
+</head>
+<body>
+<h1 th:text="${city}"></h1>
+<p th:text="${title}"></p>
+<p th:text="'Temperature: ' + ${meas.getTemperature()}"></p>
+<p th:text="'Pressure: ' + ${meas.getPressure()}"></p>
+<p th:text="'Humidity: ' + ${meas.getHumidity()}"></p>
+
+</body>
+</html>

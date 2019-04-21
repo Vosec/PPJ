@@ -16,7 +16,7 @@ public class MeasurementAvg {
         this.humidityAvg = humidityAvg;
     }
 
-    public double getTemperatureAvg() {
+    public double getTemperature() {
         return temperatureAvg;
     }
 
@@ -24,7 +24,7 @@ public class MeasurementAvg {
         this.temperatureAvg = temperatureAvg;
     }
 
-    public double getPressureAvg() {
+    public double getPressure() {
         return pressureAvg;
     }
 
@@ -32,7 +32,7 @@ public class MeasurementAvg {
         this.pressureAvg = pressureAvg;
     }
 
-    public double getHumidityAvg() {
+    public double getHumidity() {
         return humidityAvg;
     }
 

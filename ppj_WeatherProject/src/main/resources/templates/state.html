@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>PPJ Semestral project</title>
+</head>
+<body>
+<h1 th:text="${state}"></h1>
+
+<p>Create city: </p>
+<form action="#" th:action="@{'/'+${state}+'/createCity'}" th:object="${city}" method="post">
+    <label>City name and city id must be from https://openweathermap.org/</label> <br/>
+    <input type="text" th:field="*{cityName}" placeholder="name"/>
+    <input type="text" th:field="*{cityId}" placeholder="id"/>
+    <input type="submit" th:value="create"/>
+</form>
+
+<p>Cities and measurements: </p>
+
+<table>
+<tr th:each="city: ${cities}">
+    <th>
+    <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/actual'}"><p th:text="${city.cityName} + ' Actual'"></p></a>
+    <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/oneday'}"><p th:text="${city.cityName} + ' One Day avg'"></p></a>
+    <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/week'}"><p th:text="${city.cityName} + ' One week avg'"></p></a>
+    <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/two_weeks'}"><p th:text="${city.cityName} + ' Two weeks avg'"></p></a>
+    </th>
+    <th>
+        <form action="#" th:action="@{'/deleteCity/'+${city.cityId}}" th:object="${city}" method="get">
+            <input type="submit" th:value="delete"/>
+        </form>
+    </th>
+</tr>
+</table>
+
+
+</body>
+</html>

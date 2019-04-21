@@ -2,18 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>PPJ Measurements</title>
+    <title>PPJ Semestral project</title>
 
 </head>
 <body>
-<h1>PPJ - Semestrální projekt</h1>
+<h1>PPJ - Semestral project</h1>
 
-<p>Jsem tu</p>
+<p>Create state:</p>
+<form action="#" th:action="@{/createState}" th:object="${newState}" method="post">
+    <input type="text" th:field="*{stateName}" placeholder="state name"/>
+    <input type="submit" th:value="create"/>
+</form>
+
+<p>Choose state:</p>
+
+<table>
 <tr th:each="state: ${states}">
-    <!--<a th:href="@{'/states  ?name=' + ${state.stateName}}"><p th:text="${state.stateName}"></p></a> -->
-    <a th:href="@{'/avg-measurements/123456?from=one_week'}"><p th:text="${state.stateName}"></p></a>
-
+   <th><a th:href="@{'/state/' + ${state.stateName}}"><p th:text="${state.stateName}"></p></a></th>
+    <th><a th:href="@{'/deleteState/' + ${state.stateName}}"><p th:text="delete"></p></a></th>
 </tr>
+</table>
+
 
 </body>
 </html>

@@ -1,7 +1,9 @@
 package cz.tul.service;
 
 import com.jayway.jsonpath.JsonPath;
+import cz.tul.model.City;
 import cz.tul.model.Measurement;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,15 +13,28 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
+import java.util.List;
 
 @Service
 @RequestMapping("/download")
 public class DownloadService {
     //limit pro volání je 60 za minutu - TODO: udělat metodu pro nějaký počítání?
     private int counter;
+    private CityService cityService;
+    private MeasurementService measurementService;
+
+    @Autowired
+    public void setCityService(CityService cityService) {
+        this.cityService = cityService;
+    }
+
+    @Autowired
+    public void setMeasurementService(MeasurementService measurementService) {
+        this.measurementService = measurementService;
+    }
 
     @Value("${download.units}")
-    private static String units;
+    private String units;
 
     @Value("${download.apikey}")
     private String apikey;
@@ -29,9 +44,20 @@ public class DownloadService {
 
     private String API_URL = "http://api.openweathermap.org/data/2.5/weather";
 
-    public Measurement getDataForCityId(int cityId){
+    private Measurement getDataForCityId(int cityId){
         String rawData = downloadDataForCityId(cityId);
         return parseData(cityId, rawData);
+    }
+    private List<City> getAllCities(){
+        List<City> res = cityService.getCities();
+        return res;
+    }
+    public void work(){
+        List<City> cities = getAllCities();
+        for (City city : cities) {
+            Measurement m = getDataForCityId(city.getCityId());
+            measurementService.save(m);
+        }
     }
 
     private Measurement parseData(int cityId, String data){
@@ -68,7 +94,7 @@ public class DownloadService {
         try {
             URL url = new URL(myURL);
 
-            if(canDownload(this.counter, start, now)) {
+            //if(canDownload(this.counter, start, now)) {
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
@@ -76,7 +102,7 @@ public class DownloadService {
                     res.append(data);
                 }
                 in.close();
-            }
+            //}
         } catch (IOException e) {
             e.printStackTrace();
         }
