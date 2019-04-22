@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>PPJ Semestral project</title>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 
 </head>
 <body>
@@ -11,18 +12,25 @@
 <p>Create state:</p>
 <form action="#" th:action="@{/createState}" th:object="${newState}" method="post">
     <input type="text" th:field="*{stateName}" placeholder="state name"/>
-    <input type="submit" th:value="create"/>
+    <input class="button" type="submit" th:value="create"/>
 </form>
 
 <p>Choose state:</p>
 
-<table>
-<tr th:each="state: ${states}">
-   <th><a th:href="@{'/state/' + ${state.stateName}}"><p th:text="${state.stateName}"></p></a></th>
-    <th><a th:href="@{'/deleteState/' + ${state.stateName}}"><p th:text="delete"></p></a></th>
-</tr>
+<table class="zui-table">
+    <thead>
+    <tr>
+        <th>State name</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="state: ${states}">
+        <td><a th:href="@{'/state/' + ${state.stateName}}"><p th:text="${state.stateName}"></p></a></td>
+        <td><a th:href="@{'/deleteState/' + ${state.stateName}}"><p th:text="delete"></p></a></td>
+    </tr>
+    </tbody>
 </table>
-
 
 </body>
 </html>
