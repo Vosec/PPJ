@@ -6,4 +6,10 @@ Good to know:
 	* client: mongoDB Compass community
 	* localhost:27017
 * thymeleaf - view
+
+TODO:
+* ReadOnly mod aplikace
+* dodělat testy pro REST api
+* celkový refactoring
+* vytvoření popisu aplikace do readme
 	
