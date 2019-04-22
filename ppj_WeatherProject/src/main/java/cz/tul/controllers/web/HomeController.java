@@ -19,6 +19,7 @@ public class HomeController {
         this.stateService = stateService;
     }
 
+
     @RequestMapping(value = "/")
     public String showHome(Model model){
         List<State> states = stateService.getAllStates();

@@ -5,8 +5,8 @@ import cz.tul.model.City;
 import cz.tul.model.Measurement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,12 +16,13 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@RequestMapping("/download")
 public class DownloadService {
     //limit pro volání je 60 za minutu - TODO: udělat metodu pro nějaký počítání?
     private int counter;
     private CityService cityService;
     private MeasurementService measurementService;
+
+    private ThreadPoolTaskScheduler threadPoolTaskScheduler;
 
     @Autowired
     public void setCityService(CityService cityService) {
@@ -33,14 +34,22 @@ public class DownloadService {
         this.measurementService = measurementService;
     }
 
+
+    @Autowired
+    public void setThreadPoolTaskScheduler(ThreadPoolTaskScheduler threadPoolTaskScheduler) {
+        this.threadPoolTaskScheduler = threadPoolTaskScheduler;
+        startUpdatingData();
+    }
+
     @Value("${download.units}")
     private String units;
 
     @Value("${download.apikey}")
     private String apikey;
 
+    //ms !!!
     @Value("${download.updateafter}")
-    private String updateafter;
+    private int updateafter;
 
     private String API_URL = "http://api.openweathermap.org/data/2.5/weather";
 
@@ -52,6 +61,11 @@ public class DownloadService {
         List<City> res = cityService.getCities();
         return res;
     }
+
+    private void startUpdatingData(){
+        threadPoolTaskScheduler.scheduleAtFixedRate(this::work, updateafter);
+    }
+
     public void work(){
         List<City> cities = getAllCities();
         for (City city : cities) {
@@ -94,7 +108,7 @@ public class DownloadService {
         try {
             URL url = new URL(myURL);
 
-            //if(canDownload(this.counter, start, now)) {
+            if(canDownload(this.counter, start, now)) {
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
@@ -102,19 +116,21 @@ public class DownloadService {
                     res.append(data);
                 }
                 in.close();
-            //}
+            } else {
+                return "";
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return res.toString();
     }
 
-    //TODO: otestovat potom na MVC
+    //ošetření aby nedošlo k více jak 60 volání za minutu (snad funguje)
     private boolean canDownload(int counter, Date start, Date now){
         long diff;
         long diffSeconds;
 
-        if (counter > 0) {
+        if (counter > 50) {
             diff = start.getTime() - now.getTime();
             diffSeconds = diff / 1000 % 60;
             if (diffSeconds <= 50) {

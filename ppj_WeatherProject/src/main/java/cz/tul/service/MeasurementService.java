@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.stereotype.Service;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -73,7 +72,11 @@ public class MeasurementService {
             totalHum += measurement.getHumidity();
             count++;
         }
-        res = new MeasurementAvg(totalTemp/count, totalPress/count, totalHum/count);
+        double avgTemp = Math.round(totalTemp/count*100)/100.0d;
+        double avgPress = Math.round(totalPress/count*100)/100.0d;
+        double avgHum = Math.round(totalHum/count*100)/100.0d;
+
+        res = new MeasurementAvg(avgTemp, avgPress, avgHum);
         res.setCityId(cityId);
         res.setCityName(cityService.getCityByCityId(cityId).getCityName());
         return res;
@@ -82,6 +85,25 @@ public class MeasurementService {
     public Measurement getActualMeasurement(int cityId){
         return measurementRepository.findFirsByCityIdOrderBySaveTimeDesc(cityId);
     }
+
+    private Date yesterday() {
+        cal.add(Calendar.DATE, -1);
+        return cal.getTime();
+    }
+
+    private Date oneWeek(){
+        cal.add(Calendar.DATE, -7);
+        return cal.getTime();
+    }
+
+    private Date twoWeeks(){
+        cal.add(Calendar.DATE, -14);
+        return cal.getTime();
+    }
+
+
+
+
 
     //Od mongoDB 3.6 byla změněna funkčnost agregačních funkcí - je potřeba kurzor
     //Aby to fungovalo, je potřeba springboot aspoň 1.5.10 ... Mám 1.3.5 - velký problém
@@ -105,19 +127,6 @@ public class MeasurementService {
     }
 
 
-    private Date yesterday() {
-        cal.add(Calendar.DATE, -1);
-        return cal.getTime();
-    }
 
-    private Date oneWeek(){
-        cal.add(Calendar.DATE, -7);
-        return cal.getTime();
-    }
-
-    private Date twoWeeks(){
-        cal.add(Calendar.DATE, -14);
-        return cal.getTime();
-    }
 
 }

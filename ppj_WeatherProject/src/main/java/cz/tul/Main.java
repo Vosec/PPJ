@@ -1,20 +1,13 @@
 package cz.tul;
 
-import cz.tul.model.*;
-import cz.tul.repositories.CityRepository;
-import cz.tul.repositories.MeasurementRepository;
-import cz.tul.service.CityService;
 import cz.tul.service.DownloadService;
-import cz.tul.service.MeasurementService;
-import cz.tul.service.StateService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 
 @SpringBootApplication
@@ -22,14 +15,20 @@ import java.util.List;
 @EntityScan("cz.tul.model")
 public class Main {
 
-    public static void main(String[] args) {
-        //SpringApplication app = new SpringApplication(Main.class);
+    //pro periodické tahání dat z API pro všechna města uložená v DB
+    @Bean
+    ThreadPoolTaskScheduler threadPoolTaskScheduler() {
+        return new ThreadPoolTaskScheduler();
+    }
 
-        //ApplicationContext ctx = app.run(args);
+    public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
 
 
-        //Zkouška načtení všech měření pro všechny uložená města
+
+        //SpringApplication app = new SpringApplication(Main.class);
+        //ApplicationContext ctx = app.run(args);
+        //zkouška načtení všech měření pro všechny uložená města
         //DownloadService d = ctx.getBean(DownloadService.class);
         //d.work();
 
