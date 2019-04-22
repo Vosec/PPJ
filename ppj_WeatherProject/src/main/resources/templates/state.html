@@ -21,7 +21,7 @@
 <table class="zui-table">
     <thead>
     <tr>
-        <th>State name</th>
+        <th>City name</th>
         <th>Action</th>
     </tr>
     </thead>
@@ -34,7 +34,7 @@
     <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/two_weeks'}"><p th:text="${city.cityName} + ' Two weeks avg'"></p></a></td>
 
     <td>
-        <form action="#" th:action="@{'/deleteCity/'+${city.cityId}}" th:object="${city}" method="get">
+        <form action="#" th:action="@{'/deleteCity/'+${city.cityId}}" th:object="${city}" method="post">
             <input class="button" type="submit" th:value="delete"/>
         </form>
     </td>

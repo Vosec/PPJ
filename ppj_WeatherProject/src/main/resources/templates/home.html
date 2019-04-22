@@ -27,7 +27,14 @@
     <tbody>
     <tr th:each="state: ${states}">
         <td><a th:href="@{'/state/' + ${state.stateName}}"><p th:text="${state.stateName}"></p></a></td>
-        <td><a th:href="@{'/deleteState/' + ${state.stateName}}"><p th:text="delete"></p></a></td>
+        <td>
+            <!--<a th:href="@{'/deleteState/' + ${state.stateName}}"><p th:text="delete"></p></a>-->
+            <form action="#" th:action="@{'/deleteState/' + ${state.stateName}}" th:object="${state}" method="post">
+                <input class="button" type="submit" th:value="delete"/>
+            </form>
+
+
+        </td>
     </tr>
     </tbody>
 </table>

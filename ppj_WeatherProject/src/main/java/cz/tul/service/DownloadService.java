@@ -1,10 +1,12 @@
 package cz.tul.service;
 
 import com.jayway.jsonpath.JsonPath;
+import cz.tul.Config.ReadOnlySetup.ReadOnlyConditionDisabled;
 import cz.tul.model.City;
 import cz.tul.model.Measurement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Service;
 import java.io.BufferedReader;
@@ -15,9 +17,10 @@ import java.net.URL;
 import java.util.Date;
 import java.util.List;
 
+@Conditional(ReadOnlyConditionDisabled.class)
 @Service
 public class DownloadService {
-    //limit pro volání je 60 za minutu - TODO: udělat metodu pro nějaký počítání?
+    //limit pro volání je 60 za minutu
     private int counter;
     private CityService cityService;
     private MeasurementService measurementService;
@@ -33,7 +36,6 @@ public class DownloadService {
     public void setMeasurementService(MeasurementService measurementService) {
         this.measurementService = measurementService;
     }
-
 
     @Autowired
     public void setThreadPoolTaskScheduler(ThreadPoolTaskScheduler threadPoolTaskScheduler) {
@@ -62,6 +64,7 @@ public class DownloadService {
         return res;
     }
 
+    //FIXME: readOnly mode?
     private void startUpdatingData(){
         threadPoolTaskScheduler.scheduleAtFixedRate(this::work, updateafter);
     }

@@ -37,7 +37,8 @@ public class HomeController {
         //vrátí se na předchozí stránku po vytvoření nového státu
         return "redirect:"+ referer;
     }
-    @RequestMapping(value = "/deleteState/{state}", method= RequestMethod.GET)
+
+    @RequestMapping(value = "/deleteState/{state}", method= RequestMethod.POST)
     public String deleteState(HttpServletRequest request, @PathVariable("state") State state) {
         stateService.deleteState(state);
         String referer = request.getHeader("Referer");

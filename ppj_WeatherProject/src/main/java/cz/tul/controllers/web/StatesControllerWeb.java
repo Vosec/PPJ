@@ -48,7 +48,8 @@ public class StatesControllerWeb {
         //vrátí se na předchozí stránku po vytvoření nového státu
         return "redirect:"+ referer;
     }
-    @RequestMapping(value = "/deleteCity/{cityId}", method= RequestMethod.GET)
+
+    @RequestMapping(value = "/deleteCity/{cityId}", method= RequestMethod.POST)
     public String deleteCity(HttpServletRequest request, @PathVariable("cityId") int cityId) {
         City c = cityService.getCityByCityId(cityId);
         cityService.delete(c);

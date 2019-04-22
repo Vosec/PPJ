@@ -8,8 +8,8 @@ Good to know:
 * thymeleaf - view
 
 TODO:
-* ReadOnly mod aplikace
 * dodělat testy pro REST api
 * celkový refactoring
 * vytvoření popisu aplikace do readme
+* deploy
 	
