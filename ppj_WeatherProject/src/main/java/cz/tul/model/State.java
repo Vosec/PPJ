@@ -14,11 +14,6 @@ public class State {
     @Column(name="statename")
     private String stateName;
 
-    /**
-    @JsonIgnore
-    @OneToMany(mappedBy = "state", fetch = FetchType.LAZY)
-    private List<City> cities;
-    **/
     public State(String stateName) {
         this.stateName = stateName;
     }
@@ -26,11 +21,6 @@ public class State {
     public State() {
     }
 
-    /**
-    public List<City> getCities() {
-        return cities;
-    }
-    **/
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -42,12 +32,6 @@ public class State {
         State state = (State) o;
         return Objects.equals(stateName, state.stateName);
     }
-
-    /**
-    public void setCities(List<City> cities) {
-        this.cities = cities;
-    }
-    **/
 
     public void setStateName(String stateName) {
         this.stateName = stateName;

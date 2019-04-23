@@ -25,8 +25,6 @@ public class City {
     @Column(name = "cityid")
     private int cityId;
 
-
-
     public State getState() {
         return state;
     }
@@ -35,12 +33,6 @@ public class City {
         this.state = state;
     }
 
-    public City(int id, String cityName, State state, int cityId) {
-        this.id = id;
-        this.cityName = cityName;
-        this.state = state;
-        this.cityId = cityId;
-    }
     public City(String cityName, State state, int cityId) {
         this.cityName = cityName;
         this.state = state;
@@ -48,10 +40,6 @@ public class City {
     }
 
     public City() {
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setCityName(String cityName) {
@@ -69,6 +57,7 @@ public class City {
     public String getStateName() {
         return state.getStateName();
     }
+
     public void setStateName(String stateName) {
         this.state.setStateName(stateName);
     }

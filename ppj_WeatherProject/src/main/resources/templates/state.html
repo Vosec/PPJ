@@ -10,13 +10,13 @@
 
 <p>Create city: </p>
 <form action="#" th:action="@{'/'+${state}+'/createCity'}" th:object="${city}" method="post">
-    <label>City name and city id must be from https://openweathermap.org/</label> <br/>
-    <input type="text" th:field="*{cityName}" placeholder="name"/>
-    <input type="text" th:field="*{cityId}" placeholder="id"/>
+    <p>City name and city id must be from https://openweathermap.org/</p> <br/>
+    <input class="inputText" type="text" th:field="*{cityName}" placeholder="name"/>
+    <input class="inputText" type="text" th:field="*{cityId}" placeholder="id"/>
     <input class="button" type="submit" th:value="create"/>
 </form>
 
-<p>Cities and measurements: </p>
+<p>Choose city and its measurement:</p>
 
 <table class="zui-table">
     <thead>
@@ -43,6 +43,6 @@
     </tbody>
 </table>
 
-
+<footer><a href="/">GO HOME</a></footer>
 </body>
 </html>

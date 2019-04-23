@@ -6,6 +6,7 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.Condition;
 
+//díky tomuto potom můžu použít nad třídu @Conditional()
 @Component
 public class ReadOnlyConditionEnabled implements Condition {
 

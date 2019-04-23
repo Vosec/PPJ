@@ -27,8 +27,6 @@ public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
 
-
-
         //SpringApplication app = new SpringApplication(Main.class);
         //ApplicationContext ctx = app.run(args);
         //zkouška načtení všech měření pro všechny uložená města

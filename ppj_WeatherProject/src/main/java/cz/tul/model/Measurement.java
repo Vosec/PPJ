@@ -91,14 +91,6 @@ public class Measurement {
         this.pressure = pressure;
     }
 
-    public Date getSaveTime() {
-        return saveTime;
-    }
-
-    public void setSaveTime(Date saveTime) {
-        this.saveTime = saveTime;
-    }
-
     @Override
     public String toString() {
         return "Measurement{" +

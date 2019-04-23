@@ -64,7 +64,6 @@ public class DownloadService {
         return res;
     }
 
-    //FIXME: readOnly mode?
     private void startUpdatingData(){
         threadPoolTaskScheduler.scheduleAtFixedRate(this::work, updateafter);
     }
@@ -140,6 +139,7 @@ public class DownloadService {
                 return true;
             } else if (diffSeconds > 50 & diffSeconds <= 65) {
                 return false;
+                //TODO: zalogovat překročení API volání
             } else if (diffSeconds > 65) {
                 this.counter = 0;
                 return true;

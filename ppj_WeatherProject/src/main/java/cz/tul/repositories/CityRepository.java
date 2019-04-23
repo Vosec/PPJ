@@ -11,7 +11,6 @@ import java.util.List;
 @Repository
 public interface CityRepository extends CrudRepository<City, Integer> {
 
-    List<City> findByCityName(@Param("cityname") String cityname);
     City findByCityId(@Param("cityid") int cityId);
 
     //zkouška query :)
