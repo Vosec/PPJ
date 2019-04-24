@@ -5,6 +5,9 @@ import cz.tul.model.*;
 import cz.tul.repositories.CityRepository;
 import cz.tul.repositories.StateRepository;
 import io.restassured.RestAssured;
+import net.minidev.json.JSONObject;
+import org.apache.http.HttpStatus;
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +19,11 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import static com.jayway.restassured.RestAssured.when;
+import static io.restassured.RestAssured.given;
 
 //https://blog.jayway.com/2014/07/04/integration-testing-a-spring-boot-application/
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -57,10 +65,60 @@ public class CityRestTest {
 
     }
 
-    //TODO: Testy
     @Test
-    public void getCity(){
+    public void testGetCity(){
+        when().
+                get("/cities/{cityId}", city1.getCityId()).
+                then().
+                statusCode(HttpStatus.SC_OK).
+                body("cityId", Matchers.is(9));
+    }
+    @Test
+    public void testGetAllCities(){
+        when().
+                get("/cities").
+                then().
+                statusCode(HttpStatus.SC_OK).
+                body("cityId", Matchers.hasItems(city1.getCityId(), city2.getCityId(), city3.getCityId(),
+                                                    city4.getCityId()));
+    }
+    @Test
+    public void testDeleteCity() {
 
+        when()
+                .delete("/cities/{cityId}", city1.getCityId()).
+                then().
+                statusCode(HttpStatus.SC_OK);
+    }
+    @Test
+    public void testCreateCity() {
+        JSONObject jo = new JSONObject();
+
+        jo.put("cityName", "abcd");
+        Map m = new LinkedHashMap(1);
+        m.put("stateName", "Slovensko");
+        jo.put("state", m);
+        jo.put("cityId", 0);
+        //System.out.println(jo);
+
+        //"{\"cityId\":\1\", \"stateName\":\"Amerika\", \"cityName\":\"rh\"}"
+        given().contentType("application/json").body(jo).when()
+                .request("POST","/cities").then().statusCode(HttpStatus.SC_OK);
+    }
+
+    @Test
+    public void testUpdateCity(){
+        JSONObject jo = new JSONObject();
+
+        //změna názvu města
+        jo.put("cityName", "xxx");
+        Map m = new LinkedHashMap(1);
+        m.put("stateName", "Slovensko");
+        jo.put("state", m);
+        jo.put("cityId", 8994);
+
+        given().contentType("application/json").body(jo).when()
+                .request("POST","/cities/{cityId}",8994).then().statusCode(HttpStatus.SC_OK);
     }
 
 }

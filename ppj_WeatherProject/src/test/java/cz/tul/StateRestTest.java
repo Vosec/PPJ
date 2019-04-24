@@ -4,6 +4,7 @@ package cz.tul;
 import cz.tul.model.State;
 import cz.tul.repositories.StateRepository;
 import io.restassured.RestAssured;
+import net.minidev.json.JSONObject;
 import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -52,7 +53,7 @@ public class StateRestTest {
     }
 
     @Test
-    public void getState() {
+    public void testGetState() {
         String americaName = america.getStateName();
 
         when().
@@ -62,7 +63,7 @@ public class StateRestTest {
                 body("stateName", Matchers.is("America"));
     }
     @Test
-    public void getAllStates(){
+    public void testGetAllStates(){
         when().
                 get("/states").
                 then().
@@ -71,7 +72,7 @@ public class StateRestTest {
 
     }
     @Test
-    public void deleteState() {
+    public void testDeleteState() {
         String stateName = america.getStateName();
 
         when()
@@ -80,10 +81,21 @@ public class StateRestTest {
                 statusCode(HttpStatus.SC_OK);
     }
     @Test
-    public void createState() {
-        given().contentType("application/json").body("{\"stateName\":\"Poland\"}").when()
+    public void testCreateState() {
+        JSONObject jo = new JSONObject();
+        jo.put("stateName", "Poland");
+        //"{\"stateName\":\"Poland\"}"
+        given().contentType("application/json").body(jo).when()
                 .request("POST","/states").then().statusCode(HttpStatus.SC_OK);
     }
 
+    @Test
+    public void testUpdateState(){
+        JSONObject jo = new JSONObject();
+        jo.put("stateName", "Germany");
+        given().contentType("application/json").body(jo).when()
+                .request("POST","/states/{stateName}","Austria").then().statusCode(HttpStatus.SC_OK);
+
+    }
 }
 

@@ -18,7 +18,7 @@ public class ReadOnlyConditionDisabled implements Condition {
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
         String property = conditionContext.getEnvironment().getProperty("app.readOnlyMode");
         //System.out.println(mode);
-        System.out.println(property);
+        //System.out.println(property);
         return !property.equals("true");
 
     }
