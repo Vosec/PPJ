@@ -8,8 +8,6 @@ Good to know:
 * thymeleaf - view
 
 TODO:
-* dodělat testy pro REST api
+* deploy 
 * celkový refactoring
 * vytvoření popisu aplikace do readme
-* deploy
-	
