@@ -1,5 +1,6 @@
 package cz.tul.service;
 
+import cz.tul.model.MeasurementAvg;
 import org.springframework.data.mongodb.core.query.Criteria;
 import cz.tul.model.Measurement;
 import cz.tul.repositories.CityRepository;
@@ -20,7 +21,7 @@ public class MeasurementService {
     private final MeasurementRepository measurementRepository;
     private final CityService cityService;
     private final CityRepository cityRepository;
-    private final Calendar cal = Calendar.getInstance();
+    private Calendar cal;
 
     @Autowired
     public MeasurementService(MongoTemplate mongoTemplate, MeasurementRepository measurementRepository, CityRepository cityRepository, CityService cityService) {
@@ -58,12 +59,11 @@ public class MeasurementService {
     public MeasurementAvg MeasurementAvgTwoWeeks(int cityId){return getAverageValues(cityId, twoWeeks());}
 
     private MeasurementAvg getAverageValues(int cityId, Date date){
-        MeasurementAvg res;
         double totalTemp = 0;
         double totalPress = 0;
         double totalHum = 0;
         int count = 0;
-
+        System.out.println(date);
         List<Measurement> measurements = measurementRepository.findByCityIdAndAndSaveTimeGreaterThan(cityId, date);
 
         for (Measurement measurement : measurements) {
@@ -76,7 +76,7 @@ public class MeasurementService {
         double avgPress = Math.round(totalPress/count*100)/100.0d;
         double avgHum = Math.round(totalHum/count*100)/100.0d;
 
-        res = new MeasurementAvg(avgTemp, avgPress, avgHum);
+        MeasurementAvg res = new MeasurementAvg(avgTemp, avgPress, avgHum);
         res.setCityId(cityId);
         res.setCityName(cityService.getCityByCityId(cityId).getCityName());
         return res;
@@ -87,16 +87,19 @@ public class MeasurementService {
     }
 
     private Date yesterday() {
+        cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -1);
         return cal.getTime();
     }
 
     private Date oneWeek(){
+        cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -7);
         return cal.getTime();
     }
 
     private Date twoWeeks(){
+        cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -14);
         return cal.getTime();
     }

@@ -3,7 +3,7 @@ package cz.tul.controllers.web;
 import cz.tul.model.City;
 import cz.tul.model.Measurement;
 import cz.tul.service.CityService;
-import cz.tul.service.MeasurementAvg;
+import cz.tul.model.MeasurementAvg;
 import cz.tul.service.MeasurementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -72,5 +72,4 @@ public class CityControllerWeb {
 
         return "city";
     }
-    //TODO: delete, update?
 }

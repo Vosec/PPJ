@@ -2,7 +2,7 @@ package cz.tul.controllers;
 
 import cz.tul.api.RestApi;
 import cz.tul.model.Measurement;
-import cz.tul.service.MeasurementAvg;
+import cz.tul.model.MeasurementAvg;
 import cz.tul.service.MeasurementService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
-    <title>PPJ Semestral project</title>
-</head>
-<body>
-<h1 th:text="${city}"></h1>
-<p ></p>
-<table class="zui-table">
-    <thead>
-    <tr>
-        <th th:text="${title}" ></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr><td><p th:text="'Temperature: ' + ${meas.getTemperature()}"></p></td></tr>
-    <tr><td><p th:text="'Pressure: ' + ${meas.getPressure()}"></p></td></tr>
-    <tr><td><p th:text="'Humidity: ' + ${meas.getHumidity()}"></p></td></tr>
-    </tbody>
-</table>
-<footer><a href="/">GO HOME</a></footer>
-
-</body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+        <title>PPJ Semestral project</title>
+    </head>
+    <body>
+        <h1 th:text="${city}"></h1>
+        <p ></p>
+        <table class="zui-table">
+            <thead>
+            <tr>
+                <th th:text="${title}" ></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td><p th:text="'Temperature: ' + ${meas.getTemperature()}"></p></td></tr>
+            <tr><td><p th:text="'Pressure: ' + ${meas.getPressure()}"></p></td></tr>
+            <tr><td><p th:text="'Humidity: ' + ${meas.getHumidity()}"></p></td></tr>
+            </tbody>
+        </table>
+        <br/>
+        <br/>
+        <footer><a href="/">GO HOME</a></footer>
+    </body>
 </html>

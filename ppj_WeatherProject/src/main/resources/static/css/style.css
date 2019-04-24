@@ -19,7 +19,7 @@
     text-shadow: 1px 1px 1px #fff;
 }
 .button {
-    background-color: #DDEFEF; /* Green */
+    background-color: #DDEFEF;
     border: none;
     padding: 5px 5px;
     color: black;
@@ -32,11 +32,11 @@
 footer{
     position:relative;
     bottom:0;
-    width:100%;
+    width:100px;
     height:20px;
     background: lightcoral;
     text-align: center;
-
+    float: left;
 }
 a{
     text-decoration:none;
@@ -48,7 +48,6 @@ h1{
     font: normal 36px Arial, sans-serif;
     text-shadow: 1px 1px 1px #fff;
     color: #336B6B;
-
 }
 
 

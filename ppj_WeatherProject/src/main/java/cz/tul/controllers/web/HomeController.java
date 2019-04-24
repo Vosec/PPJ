@@ -45,5 +45,4 @@ public class HomeController {
         //vrátí se na předchozí stránku po vytvoření nového státu
         return "redirect:"+ referer;
     }
-    //TODO: update?
 }

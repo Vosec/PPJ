@@ -3,7 +3,7 @@ package cz.tul.api;
 import cz.tul.model.City;
 import cz.tul.model.Measurement;
 import cz.tul.model.State;
-import cz.tul.service.MeasurementAvg;
+import cz.tul.model.MeasurementAvg;
 import org.bson.types.ObjectId;
 import retrofit2.Call;
 import retrofit2.http.*;

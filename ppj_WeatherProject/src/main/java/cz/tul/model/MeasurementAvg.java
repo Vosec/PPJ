@@ -1,4 +1,4 @@
-package cz.tul.service;
+package cz.tul.model;
 
 public class MeasurementAvg {
     private double temperatureAvg;
