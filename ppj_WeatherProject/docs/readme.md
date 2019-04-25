@@ -8,6 +8,5 @@ Good to know:
 * thymeleaf - view
 
 TODO:
-* deploy 
 * celkový refactoring
 * vytvoření popisu aplikace do readme
