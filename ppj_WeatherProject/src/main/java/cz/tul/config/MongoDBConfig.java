@@ -1,4 +1,4 @@
-package cz.tul.Config;
+package cz.tul.config;
 
 import cz.tul.model.Measurement;
 import org.springframework.beans.factory.InitializingBean;
@@ -28,7 +28,7 @@ public class MongoDBConfig implements InitializingBean {
     public MongoDBConfig() {
     }
 
-    //Zafixovat index na atribut saveTime (atribut času, kdy se measurement vložil)
+    //Create index on attribute saveTime (Its Date created after Measurement has been created)
     @Override
     public void afterPropertiesSet() {
         //System.out.println(expiration);

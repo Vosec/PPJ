@@ -36,10 +36,9 @@ public class CityService {
         cityRepository.deleteAll();
     }
 
-    //pro cityID z rest api
+    //for city id from API
     public City getCityByCityId(int cityId){return cityRepository.findByCityId(cityId);}
 
-    //získání všech měst dle jména státu
     public List<City>  getCitiesByStateName(String stateName){return cityRepository.findByStateName(stateName);}
 
 

@@ -21,7 +21,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import static com.jayway.restassured.RestAssured.when;
 import static io.restassured.RestAssured.given;
-
 import java.util.*;
 
 //https://blog.jayway.com/2014/07/04/integration-testing-a-spring-boot-application/

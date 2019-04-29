@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
 @RestController
 public class StateController {
 
@@ -50,7 +50,6 @@ public class StateController {
     public ResponseEntity<State> updateState(@RequestBody State state) {
         State requestedState = stateService.get(state.getStateName());
         if (requestedState != null) {
-            //nwm jestli je to tak OK nejdřív smazat, vytvořit nové
             stateService.deleteState(requestedState);
             State updatedState = stateService.save(state);
             return new ResponseEntity<>(updatedState, HttpStatus.OK);

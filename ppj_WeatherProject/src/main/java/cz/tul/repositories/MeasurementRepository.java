@@ -4,8 +4,6 @@ import cz.tul.model.Measurement;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
-
-import java.sql.DatabaseMetaData;
 import java.util.Date;
 import java.util.List;
 

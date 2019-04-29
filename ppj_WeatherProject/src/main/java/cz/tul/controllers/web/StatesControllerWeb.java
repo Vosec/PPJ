@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -45,7 +44,7 @@ public class StatesControllerWeb {
         City c = new City(city.getCityName(), s, city.getCityId());
         cityService.create(c);
         String referer = request.getHeader("Referer");
-        //vrátí se na předchozí stránku po vytvoření nového státu
+        //returns to prev. page
         return "redirect:"+ referer;
     }
 
@@ -54,7 +53,7 @@ public class StatesControllerWeb {
         City c = cityService.getCityByCityId(cityId);
         cityService.delete(c);
         String referer = request.getHeader("Referer");
-        //vrátí se na předchozí stránku po vytvoření nového státu
+        //returns to prev. page
         return "redirect:"+ referer;
     }
 }

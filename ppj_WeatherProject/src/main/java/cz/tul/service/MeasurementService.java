@@ -63,7 +63,6 @@ public class MeasurementService {
         double totalPress = 0;
         double totalHum = 0;
         int count = 0;
-        System.out.println(date);
         List<Measurement> measurements = measurementRepository.findByCityIdAndAndSaveTimeGreaterThan(cityId, date);
 
         for (Measurement measurement : measurements) {
@@ -104,13 +103,10 @@ public class MeasurementService {
         return cal.getTime();
     }
 
-
-
-
-
-    //Od mongoDB 3.6 byla změněna funkčnost agregačních funkcí - je potřeba kurzor
-    //Aby to fungovalo, je potřeba springboot aspoň 1.5.10 ... Mám 1.3.5 - velký problém
-    //Přestane jít tomcat, testy, všechno velký špatný
+    //Since mongoDB 3.6 agragation functions has been edited - it needs cursor
+    //And cursor needs springboot version 1.5.10, I got 1.3.5 - problem...
+    //Test wont run, a lot of refactoring etc...
+    //So I solved it in MeasurementRepository by creating query
     private MeasurementAvg getAverageValuesMongo(int cityId, Date date){
         GroupOperation group = Aggregation.group()
                 .avg("humidity").as("humidityAvg")
@@ -121,11 +117,11 @@ public class MeasurementService {
         ProjectionOperation projection = Aggregation.project("temperatureAvg", "humidityAvg", "pressureAvg");
         Aggregation aggregation = Aggregation.newAggregation(match, group, projection);
 
-        //Convert the aggregation result into a List
+        //result to list
         AggregationResults<MeasurementAvg> groupResults
                 = mongoTemplate.aggregate(aggregation, "measurement", MeasurementAvg.class);
 
-        //getUniqueMappedResult vrací Objekt, jinak vrátí List objektu
+        //return Object
         return groupResults.getUniqueMappedResult();
     }
 

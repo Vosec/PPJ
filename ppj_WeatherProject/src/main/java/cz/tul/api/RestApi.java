@@ -7,7 +7,6 @@ import cz.tul.model.MeasurementAvg;
 import org.bson.types.ObjectId;
 import retrofit2.Call;
 import retrofit2.http.*;
-
 import java.util.List;
 
 //Retrofit - https://www.vogella.com/tutorials/Retrofit/article.html
@@ -51,7 +50,7 @@ public interface RestApi {
     @GET(CITY_PATH)
     Call<City> getCity(@Path("cityId") int cityId);
 
-    //musí existovat nejdříve stát!
+    //State must exist first
     //{
     //	"cityName": "Oxford",
     //	"state": {

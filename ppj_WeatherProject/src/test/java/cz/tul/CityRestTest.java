@@ -21,7 +21,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 import static com.jayway.restassured.RestAssured.when;
 import static io.restassured.RestAssured.given;
 

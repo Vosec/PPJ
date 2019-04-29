@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class HomeController {
     public String createState(HttpServletRequest request, @ModelAttribute(value="newState") State state) {
         stateService.create(state);
         String referer = request.getHeader("Referer");
-        //vrátí se na předchozí stránku po vytvoření nového státu
+        //returns to prev. page
         return "redirect:"+ referer;
     }
 
@@ -42,7 +41,7 @@ public class HomeController {
     public String deleteState(HttpServletRequest request, @PathVariable("state") State state) {
         stateService.deleteState(state);
         String referer = request.getHeader("Referer");
-        //vrátí se na předchozí stránku po vytvoření nového státu
+        //returns to prev. page
         return "redirect:"+ referer;
     }
 }

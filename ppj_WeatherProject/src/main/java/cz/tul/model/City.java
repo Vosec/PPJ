@@ -21,7 +21,7 @@ public class City {
     @JoinColumn(name="statename")
     private State state;
 
-    //pro id získané z rest api
+    //for city id from API
     @Column(name = "cityid")
     private int cityId;
 

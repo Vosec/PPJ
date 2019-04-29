@@ -1,7 +1,7 @@
 package cz.tul.service;
 
 import com.jayway.jsonpath.JsonPath;
-import cz.tul.Config.ReadOnlySetup.ReadOnlyConditionDisabled;
+import cz.tul.config.ReadOnlySetup.ReadOnlyConditionDisabled;
 import cz.tul.model.City;
 import cz.tul.model.Measurement;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +16,17 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Conditional(ReadOnlyConditionDisabled.class)
 @Service
 public class DownloadService {
-    //limit pro volání je 60 za minutu
+    //limit for api calls: 60 in 1 minute
     private int counter;
     private CityService cityService;
     private MeasurementService measurementService;
-
+    private static final Logger LOGGER = Logger.getLogger( DownloadService.class.getName());
     private ThreadPoolTaskScheduler threadPoolTaskScheduler;
 
     @Autowired
@@ -53,22 +55,22 @@ public class DownloadService {
     @Value("${download.updateafter}")
     private int updateafter;
 
-    private String API_URL = "http://api.openweathermap.org/data/2.5/weather";
+    @Value("${download.url}")
+    private String API_URL;
 
     private Measurement getDataForCityId(int cityId){
         String rawData = downloadDataForCityId(cityId);
         return parseData(cityId, rawData);
     }
     private List<City> getAllCities(){
-        List<City> res = cityService.getCities();
-        return res;
+        return cityService.getCities();
     }
 
     private void startUpdatingData(){
         threadPoolTaskScheduler.scheduleAtFixedRate(this::work, updateafter);
     }
 
-    public void work(){
+    private void work(){
         List<City> cities = getAllCities();
         for (City city : cities) {
             Measurement m = getDataForCityId(city.getCityId());
@@ -81,14 +83,14 @@ public class DownloadService {
         double temperature = JsonPath.read(data, "$.main.temp");
         double pressure = toDouble(JsonPath.read(data, "$.main.pressure"));
         double humidity = toDouble(JsonPath.read(data, "$.main.humidity"));
-        //Timestamp t = JsonPath.read(data, "$.dt"); kdyby náhodou
+        //Timestamp t = JsonPath.read(data, "$.dt"); if I ever wanted to get time of measurement
 
         Measurement res = new Measurement(cityId, temperature, humidity, pressure, cityName);
         return res;
     }
 
     //java.lang.Integer cannot be cast to java.lang.Double
-    //někdy to vrací Integer... :-)
+    //sometimes it returns integer... :-)
     private double toDouble(Object in){
         if(in instanceof Double){
             return (Double) in;
@@ -127,7 +129,7 @@ public class DownloadService {
         return res.toString();
     }
 
-    //ošetření aby nedošlo k více jak 60 volání za minutu (snad funguje)
+    //max 60 calls in 1 minute
     private boolean canDownload(int counter, Date start, Date now){
         long diff;
         long diffSeconds;
@@ -138,8 +140,8 @@ public class DownloadService {
             if (diffSeconds <= 50) {
                 return true;
             } else if (diffSeconds > 50 & diffSeconds <= 65) {
+                LOGGER.log(Level.WARNING, "More than 50 api calls were called under 1 minute");
                 return false;
-                //TODO: zalogovat překročení API volání
             } else if (diffSeconds > 65) {
                 this.counter = 0;
                 return true;

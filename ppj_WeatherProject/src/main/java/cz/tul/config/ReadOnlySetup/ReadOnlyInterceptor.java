@@ -1,6 +1,5 @@
-package cz.tul.Config.ReadOnlySetup;
+package cz.tul.config.ReadOnlySetup;
 
-import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;

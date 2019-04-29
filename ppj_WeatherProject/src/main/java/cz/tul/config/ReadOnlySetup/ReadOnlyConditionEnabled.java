@@ -1,4 +1,4 @@
-package cz.tul.Config.ReadOnlySetup;
+package cz.tul.config.ReadOnlySetup;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ConditionContext;
@@ -6,11 +6,11 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.Condition;
 
-//díky tomuto potom můžu použít nad třídu @Conditional()
+//because of that (implements condition) I can use this class in @Conditional()
 @Component
 public class ReadOnlyConditionEnabled implements Condition {
 
-    //hází null nevim proč proto .getProperty()
+    //returns null, idk why - so I use .getProperty()
     @Value("${app.readOnlyMode}")
     private String mode;
 

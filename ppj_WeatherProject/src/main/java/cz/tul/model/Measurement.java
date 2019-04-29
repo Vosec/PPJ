@@ -15,7 +15,7 @@ public class Measurement {
     private double humidity;
     private double pressure;
     private String cityName;
-    //Pro tu 14ti denni expiraci
+    //For expiration in mongoDB
     private Date saveTime = new Date();
 
     private int cityId;
@@ -56,7 +56,7 @@ public class Measurement {
         this.cityName = cityName;
     }
 
-    //vracim hexString, abych v json http response viděl jen to Id a ne celej object (jinak se to id neukazalo)
+    //hexString for HTTP to see only id string
     public String getId() {
         return id.toHexString();
     }

@@ -1,6 +1,6 @@
 package cz.tul;
 
-import cz.tul.Config.ReadOnlySetup.ReadOnlyInterceptor;
+import cz.tul.config.ReadOnlySetup.ReadOnlyInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.orm.jpa.EntityScan;
@@ -14,7 +14,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 @EntityScan("cz.tul.model")
 public class Main {
 
-    //pro periodické tahání dat z API pro všechna města uložená v DB
+    //for periodic API calls for all city IDs from DB
     //https://www.baeldung.com/spring-task-scheduler
     @Bean
     ThreadPoolTaskScheduler threadPoolTaskScheduler() {
@@ -26,12 +26,6 @@ public class Main {
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
-
-        //SpringApplication app = new SpringApplication(Main.class);
-        //ApplicationContext ctx = app.run(args);
-        //zkouška načtení všech měření pro všechny uložená města
-        //DownloadService d = ctx.getBean(DownloadService.class);
-        //d.work();
     }
 
 }

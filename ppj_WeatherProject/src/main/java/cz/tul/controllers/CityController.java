@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -30,7 +29,7 @@ public class CityController {
         return new ResponseEntity<>(cities, HttpStatus.OK);
     }
 
-    //vytvořit město lze pouze "do" již vytvořeného státu, jinak 400-BAD RQST
+    //City has to belong to already created State, else 400-BAD RQST
     @RequestMapping(value = RestApi.CITIES_PATH, method = RequestMethod.POST)
     public ResponseEntity<City> createCity(@RequestBody City city) {
         if (cityService.exists(city.getCityId())) {
@@ -68,7 +67,6 @@ public class CityController {
     public ResponseEntity deleteCity(@PathVariable("cityId") int cityId) {
         City city = cityService.getCityByCityId(cityId);
         if (city != null) {
-            //nwm jestli je to tak OK nejdřív smazat, vytvořit nové
             cityService.delete(city);
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
