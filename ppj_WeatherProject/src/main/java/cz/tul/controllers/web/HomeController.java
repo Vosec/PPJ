@@ -23,7 +23,7 @@ public class HomeController {
     public String showHome(Model model){
         List<State> states = stateService.getAllStates();
         State newState = new State();
-        newState.setStateName("");
+        newState.setName("");
 
         model.addAttribute("states", states);
         model.addAttribute("newState", newState);

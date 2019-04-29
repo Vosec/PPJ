@@ -14,7 +14,7 @@ public interface CityRepository extends CrudRepository<City, Integer> {
     City findByCityId(@Param("cityid") int cityId);
 
     //trying some query :)
-    @Query("select c from City as c where state.stateName=:stateName")
-    List<City> findByStateName(@Param("stateName") String stateName);
+    @Query("select c from City as c where state.name=:name")
+    List<City> findByStateName(@Param("name") String name);
 
 }

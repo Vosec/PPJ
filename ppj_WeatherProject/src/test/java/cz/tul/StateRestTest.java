@@ -54,13 +54,13 @@ public class StateRestTest {
 
     @Test
     public void testGetState() {
-        String americaName = america.getStateName();
+        String americaName = america.getName();
 
         when().
                 get("/states/{stateName}", americaName).
                 then().
                 statusCode(HttpStatus.SC_OK).
-                body("stateName", Matchers.is("America"));
+                body("name", Matchers.is("America"));
     }
     @Test
     public void testGetAllStates(){
@@ -68,12 +68,12 @@ public class StateRestTest {
                 get("/states").
                 then().
                 statusCode(HttpStatus.SC_OK).
-                body("stateName", Matchers.hasItems("America", "Austria", "Germany"));
+                body("name", Matchers.hasItems("America", "Austria", "Germany"));
 
     }
     @Test
     public void testDeleteState() {
-        String stateName = america.getStateName();
+        String stateName = america.getName();
 
         when()
                 .delete("/states/{stateName}", stateName).
@@ -83,7 +83,7 @@ public class StateRestTest {
     @Test
     public void testCreateState() {
         JSONObject jo = new JSONObject();
-        jo.put("stateName", "Poland");
+        jo.put("name", "Poland");
         //"{\"stateName\":\"Poland\"}"
         given().contentType("application/json").body(jo).when()
                 .request("POST","/states").then().statusCode(HttpStatus.SC_OK);
@@ -92,7 +92,7 @@ public class StateRestTest {
     @Test
     public void testUpdateState(){
         JSONObject jo = new JSONObject();
-        jo.put("stateName", "Germany");
+        jo.put("name", "Germany");
         given().contentType("application/json").body(jo).when()
                 .request("POST","/states/{stateName}","Austria").then().statusCode(HttpStatus.SC_OK);
 

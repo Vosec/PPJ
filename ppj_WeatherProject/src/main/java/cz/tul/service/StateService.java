@@ -22,12 +22,12 @@ public class StateService {
         return stateRepository.save(state);
     }
 
-    public State get(String stateName){
-        return stateRepository.findOne(stateName);
+    public State get(String name){
+        return stateRepository.findOne(name);
     }
 
-    public boolean exists(String statename) {
-        return stateRepository.exists(statename);
+    public boolean exists(String name) {
+        return stateRepository.exists(name);
     }
 
     public List<State> getAllStates() {

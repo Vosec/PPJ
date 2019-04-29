@@ -41,7 +41,7 @@ public class StatesControllerWeb {
     @RequestMapping(value = "/{state}/createCity", method= RequestMethod.POST)
     public String createCity(HttpServletRequest request, @ModelAttribute(value="newCity") City city, @PathVariable("state") String state) {
         State s = stateService.get(state);
-        City c = new City(city.getCityName(), s, city.getCityId());
+        City c = new City(city.getName(), s, city.getCityId());
         cityService.create(c);
         String referer = request.getHeader("Referer");
         //returns to prev. page

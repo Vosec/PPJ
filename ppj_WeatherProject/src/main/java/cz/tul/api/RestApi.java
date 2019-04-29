@@ -29,7 +29,7 @@ public interface RestApi {
     @GET(STATE_PATH)
     Call<State> getState(@Path("stateName") String stateName);
 
-    //{"stateName":"Spain"}
+    //{"name":"Spain"}
     @POST(STATES_PATH)
     Call<State> createState(@Body State state);
 
@@ -54,10 +54,10 @@ public interface RestApi {
     //{
     //	"cityName": "Oxford",
     //	"state": {
-    //	"stateName": "United Kingdom"
+    //	"name": "United Kingdom"
     //  },
     //  "cityId": 123456,
-    //  "stateName": "United Kingdom"
+    //  "name": "United Kingdom"
     //}
     @POST(CITIES_PATH)
     Call<City> createCity(@Body City city);
@@ -86,7 +86,7 @@ public interface RestApi {
     //    "temperature": 156.0,
     //    "humidity": 20.0,
     //    "pressure": 60.0,
-    //    "cityName": "Oxford",
+    //    "name": "Oxford",
     //    "saveTime": 1555620956671,
     //    "cityId": 123456
     //  }

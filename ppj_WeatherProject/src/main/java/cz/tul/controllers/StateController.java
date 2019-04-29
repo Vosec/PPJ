@@ -28,7 +28,7 @@ public class StateController {
 
     @RequestMapping(value = RestApi.STATES_PATH, method = RequestMethod.POST)
     public ResponseEntity<State> createState(@RequestBody State state) {
-        if (stateService.exists(state.getStateName())) {
+        if (stateService.exists(state.getName())) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
             stateService.create(state);
@@ -37,8 +37,8 @@ public class StateController {
     }
 
     @RequestMapping(value = RestApi.STATE_PATH, method = RequestMethod.GET)
-    public ResponseEntity<State> getState(@PathVariable("stateName") String stateName) {
-        State state = stateService.get(stateName);
+    public ResponseEntity<State> getState(@PathVariable("stateName") String name) {
+        State state = stateService.get(name);
         if (state != null) {
             return new ResponseEntity<>(state, HttpStatus.OK);
         } else {
@@ -48,7 +48,7 @@ public class StateController {
 
     @RequestMapping(value = RestApi.STATE_PATH, method = RequestMethod.POST)
     public ResponseEntity<State> updateState(@RequestBody State state) {
-        State requestedState = stateService.get(state.getStateName());
+        State requestedState = stateService.get(state.getName());
         if (requestedState != null) {
             stateService.deleteState(requestedState);
             State updatedState = stateService.save(state);
@@ -59,8 +59,8 @@ public class StateController {
     }
 
     @RequestMapping(value = RestApi.STATE_PATH, method = RequestMethod.DELETE)
-    public ResponseEntity<State> deleteState(@PathVariable("stateName") String stateName) {
-        State state = stateService.get(stateName);
+    public ResponseEntity<State> deleteState(@PathVariable("stateName") String name) {
+        State state = stateService.get(name);
         if (state != null) {
             stateService.deleteState(state);
             return new ResponseEntity<>(HttpStatus.OK);

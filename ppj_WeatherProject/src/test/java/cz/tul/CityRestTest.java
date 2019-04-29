@@ -93,9 +93,9 @@ public class CityRestTest {
     public void testCreateCity() {
         JSONObject jo = new JSONObject();
 
-        jo.put("cityName", "abcd");
+        jo.put("name", "abcd");
         Map m = new LinkedHashMap(1);
-        m.put("stateName", "Slovensko");
+        m.put("name", "Slovensko");
         jo.put("state", m);
         jo.put("cityId", 0);
         //System.out.println(jo);
@@ -110,9 +110,9 @@ public class CityRestTest {
         JSONObject jo = new JSONObject();
 
         //změna názvu města
-        jo.put("cityName", "xxx");
+        jo.put("name", "xxx");
         Map m = new LinkedHashMap(1);
-        m.put("stateName", "Slovensko");
+        m.put("name", "Slovensko");
         jo.put("state", m);
         jo.put("cityId", 8994);
 

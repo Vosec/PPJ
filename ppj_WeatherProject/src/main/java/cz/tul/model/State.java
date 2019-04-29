@@ -9,10 +9,10 @@ public class State {
 
     @Id
     @Column(name="statename")
-    private String stateName;
+    private String name;
 
-    public State(String stateName) {
-        this.stateName = stateName;
+    public State(String name) {
+        this.name = name;
     }
 
     public State() {
@@ -27,19 +27,19 @@ public class State {
             return false;
         }
         State state = (State) o;
-        return Objects.equals(stateName, state.stateName);
+        return Objects.equals(name, state.name);
     }
 
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getStateName() {
-        return stateName;
+    public String getName() {
+        return name;
     }
 
     @Override
     public String toString() {
-        return "State: " + stateName;
+        return "State: " + name;
     }
 }

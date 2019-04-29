@@ -33,7 +33,7 @@ public class CityControllerWeb {
         MeasurementAvg meas  = measurementService.MeasurementAvgTwoWeeks(cityId);
         String title = "Two weeks average measurement";
         model.addAttribute("title", title);
-        model.addAttribute("city", city.getCityName());
+        model.addAttribute("city", city.getName());
         model.addAttribute("meas", meas);
 
         return "city";
@@ -45,7 +45,7 @@ public class CityControllerWeb {
         Measurement meas  = measurementService.getActualMeasurement(cityId);
         String title = "Actual measurement";
         model.addAttribute("title", title);
-        model.addAttribute("city", city.getCityName());
+        model.addAttribute("city", city.getName());
         model.addAttribute("meas", meas);
 
         return "city";
@@ -56,7 +56,7 @@ public class CityControllerWeb {
         MeasurementAvg meas  = measurementService.MeasurementAvgOneDay(cityId);
         String title = "One day average measurement";
         model.addAttribute("title", title);
-        model.addAttribute("city", city.getCityName());
+        model.addAttribute("city", city.getName());
         model.addAttribute("meas", meas);
 
         return "city";
@@ -67,7 +67,7 @@ public class CityControllerWeb {
         MeasurementAvg meas  = measurementService.MeasurementAvgOneWeek(cityId);
         String title = "One week average measurement";
         model.addAttribute("title", title);
-        model.addAttribute("city", city.getCityName());
+        model.addAttribute("city", city.getName());
         model.addAttribute("meas", meas);
 
         return "city";

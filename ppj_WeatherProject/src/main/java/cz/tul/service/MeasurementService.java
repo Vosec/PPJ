@@ -77,7 +77,7 @@ public class MeasurementService {
 
         MeasurementAvg res = new MeasurementAvg(avgTemp, avgPress, avgHum);
         res.setCityId(cityId);
-        res.setCityName(cityService.getCityByCityId(cityId).getCityName());
+        res.setCityName(cityService.getCityByCityId(cityId).getName());
         return res;
     }
 

@@ -11,7 +11,7 @@
 
 <p>Create state:</p>
 <form action="#" th:action="@{/createState}" th:object="${newState}" method="post">
-    <input class="inputText" type="text" th:field="*{stateName}" placeholder="state name"/>
+    <input class="inputText" type="text" th:field="*{name}" placeholder="state name"/>
     <input class="button" type="submit" th:value="create"/>
 </form>
 
@@ -26,10 +26,10 @@
     </thead>
     <tbody>
     <tr th:each="state: ${states}">
-        <td><a th:href="@{'/state/' + ${state.stateName}}"><p th:text="${state.stateName}"></p></a></td>
+        <td><a th:href="@{'/state/' + ${state.name}}"><p th:text="${state.name}"></p></a></td>
         <td>
             <!--<a th:href="@{'/deleteState/' + ${state.stateName}}"><p th:text="delete"></p></a>-->
-            <form action="#" th:action="@{'/deleteState/' + ${state.stateName}}" th:object="${state}" method="post">
+            <form action="#" th:action="@{'/deleteState/' + ${state.name}}" th:object="${state}" method="post">
                 <input class="button" type="submit" th:value="delete"/>
             </form>
         </td>

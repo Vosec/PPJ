@@ -11,7 +11,7 @@
 <p>Create city: </p>
 <form action="#" th:action="@{'/'+${state}+'/createCity'}" th:object="${city}" method="post">
     <p>City name and city id must be from https://openweathermap.org/</p> <br/>
-    <input class="inputText" type="text" th:field="*{cityName}" placeholder="name"/>
+    <input class="inputText" type="text" th:field="*{name}" placeholder="name"/>
     <input class="inputText" type="text" th:field="*{cityId}" placeholder="id"/>
     <input class="button" type="submit" th:value="create"/>
 </form>
@@ -28,10 +28,10 @@
     <tbody>
 <tr th:each="city: ${cities}">
 
-    <td><a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/actual'}"><p th:text="${city.cityName} + ' Actual'"></p></a>
-     <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/oneday'}"><p th:text="${city.cityName} + ' One Day avg'"></p></a>
-    <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/week'}"><p th:text="${city.cityName} + ' One week avg'"></p></a>
-    <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/two_weeks'}"><p th:text="${city.cityName} + ' Two weeks avg'"></p></a></td>
+    <td><a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/actual'}"><p th:text="${city.name} + ' Actual'"></p></a>
+     <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/oneday'}"><p th:text="${city.name} + ' One Day avg'"></p></a>
+    <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/week'}"><p th:text="${city.name} + ' One week avg'"></p></a>
+    <a th:href="@{'/state/' + ${state} +'/'+ ${city.cityId}+'/two_weeks'}"><p th:text="${city.name} + ' Two weeks avg'"></p></a></td>
 
     <td>
         <form action="#" th:action="@{'/deleteCity/'+${city.cityId}}" th:object="${city}" method="post">

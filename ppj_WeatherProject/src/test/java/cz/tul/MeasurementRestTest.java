@@ -90,7 +90,7 @@ public class MeasurementRestTest {
 
         //změna názvu města
         jo.put("id", m1.getId());
-        jo.put("cityName", "Oslo");
+        jo.put("name", "Oslo");
         jo.put("cityId", 15456);
         jo.put("temperature", 1);
         jo.put("pressure", 1);

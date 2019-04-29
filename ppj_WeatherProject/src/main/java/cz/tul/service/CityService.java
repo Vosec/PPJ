@@ -39,7 +39,7 @@ public class CityService {
     //for city id from API
     public City getCityByCityId(int cityId){return cityRepository.findByCityId(cityId);}
 
-    public List<City>  getCitiesByStateName(String stateName){return cityRepository.findByStateName(stateName);}
+    public List<City>  getCitiesByStateName(String name){return cityRepository.findByStateName(name);}
 
 
 }

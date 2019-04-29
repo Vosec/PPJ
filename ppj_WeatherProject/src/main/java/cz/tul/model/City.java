@@ -14,7 +14,7 @@ public class City {
     private int id;
 
     @Column(name = "cityname")
-    private String cityName;
+    private String name;
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -33,8 +33,8 @@ public class City {
         this.state = state;
     }
 
-    public City(String cityName, State state, int cityId) {
-        this.cityName = cityName;
+    public City(String name, State state, int cityId) {
+        this.name = name;
         this.state = state;
         this.cityId = cityId;
     }
@@ -42,24 +42,20 @@ public class City {
     public City() {
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
     public int getId() {
         return id;
     }
 
-    public String getCityName() {
-        return cityName;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     public String getStateName() {
-        return state.getStateName();
-    }
-
-    public void setStateName(String stateName) {
-        this.state.setStateName(stateName);
+        return state.getName();
     }
 
     @Override
@@ -68,13 +64,13 @@ public class City {
         if (!(o instanceof City)) return false;
         City city = (City) o;
         return getId() == city.getId() &&
-                Objects.equals(getCityName(), city.getCityName()) &&
+                Objects.equals(getName(), city.getName()) &&
                 Objects.equals(getState(), city.getState());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getCityName(), getState());
+        return Objects.hash(getId(), getName(), getState());
     }
 
     public int getCityId() {
@@ -87,6 +83,6 @@ public class City {
 
     @Override
     public String toString() {
-        return "#City: id: " + id + ", cityName: " + cityName + ", State: " + state.getStateName();
+        return "#City: id: " + id + ", cityName: " + name + ", State: " + state.getName();
     }
 }
