@@ -3,7 +3,7 @@ Toto je složka semestrálního projektu. Základ je použit z ppj_JPA-mongoDB, 
 * mySQL:
   * mySQL DB verze 5
   * název DB použit v projektu: ppj_semestral
-  * tabulky: states(statename), cities (id, cityname, statename, cityid) id=autoinkrement, statename FK, cityid = openweathermap cityid
+  * tabulky: states(name), cities (id, name, statename, cityid) id=autoinkrement, statename FK, cityid = openweathermap cityid
   * application-prod.properties
   * create scripty v /mysql
 
