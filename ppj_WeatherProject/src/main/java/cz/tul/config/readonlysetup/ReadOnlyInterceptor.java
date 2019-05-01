@@ -1,4 +1,4 @@
-package cz.tul.config.ReadOnlySetup;
+package cz.tul.config.readonlysetup;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;

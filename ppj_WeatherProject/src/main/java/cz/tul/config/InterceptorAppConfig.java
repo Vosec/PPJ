@@ -1,7 +1,7 @@
 package cz.tul.config;
 
-import cz.tul.config.ReadOnlySetup.ReadOnlyConditionEnabled;
-import cz.tul.config.ReadOnlySetup.ReadOnlyInterceptor;
+import cz.tul.config.readonlysetup.ReadOnlyConditionEnabled;
+import cz.tul.config.readonlysetup.ReadOnlyInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;

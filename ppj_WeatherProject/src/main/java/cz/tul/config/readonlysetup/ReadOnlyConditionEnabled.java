@@ -1,4 +1,4 @@
-package cz.tul.config.ReadOnlySetup;
+package cz.tul.config.readonlysetup;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ConditionContext;

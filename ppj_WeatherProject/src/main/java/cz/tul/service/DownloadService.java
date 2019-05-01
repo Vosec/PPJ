@@ -1,7 +1,7 @@
 package cz.tul.service;
 
 import com.jayway.jsonpath.JsonPath;
-import cz.tul.config.ReadOnlySetup.ReadOnlyConditionDisabled;
+import cz.tul.config.readonlysetup.ReadOnlyConditionDisabled;
 import cz.tul.model.City;
 import cz.tul.model.Measurement;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +23,8 @@ import java.util.logging.Logger;
 @Service
 public class DownloadService {
     //limit for api calls: 60 in 1 minute
+
+    //synchronized added on method canDownload()
     private int counter;
     private CityService cityService;
     private MeasurementService measurementService;
@@ -124,13 +126,13 @@ public class DownloadService {
                 return "";
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.WARNING, "Problem occured while getting data from API");
         }
         return res.toString();
     }
 
     //max 60 calls in 1 minute
-    private boolean canDownload(int counter, Date start, Date now){
+    private synchronized boolean canDownload(int counter, Date start, Date now){
         long diff;
         long diffSeconds;
 

@@ -1,6 +1,6 @@
 package cz.tul;
 
-import cz.tul.config.ReadOnlySetup.ReadOnlyInterceptor;
+import cz.tul.config.readonlysetup.ReadOnlyInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.orm.jpa.EntityScan;
