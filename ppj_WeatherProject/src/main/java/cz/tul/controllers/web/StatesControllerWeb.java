@@ -1,5 +1,6 @@
 package cz.tul.controllers.web;
 
+import cz.tul.helper.InputHelper;
 import cz.tul.model.City;
 import cz.tul.model.State;
 import cz.tul.service.CityService;
@@ -18,6 +19,7 @@ import java.util.List;
 public class StatesControllerWeb {
     private CityService cityService;
     private StateService stateService;
+    private InputHelper ih = new InputHelper();
 
     @Autowired
     public void setStateService(StateService stateService) {
@@ -41,6 +43,9 @@ public class StatesControllerWeb {
     @RequestMapping(value = "/{state}/createCity", method= RequestMethod.POST)
     public String createCity(HttpServletRequest request, @ModelAttribute(value="newCity") City city, @PathVariable("state") String state) {
         State s = stateService.get(state);
+        if(ih.isValidName(city.getName()) | ih.isValidCityId(city.getCityId())){
+            return "error-400";
+        }
         City c = new City(city.getName(), s, city.getCityId());
         cityService.create(c);
         String referer = request.getHeader("Referer");

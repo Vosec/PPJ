@@ -1,6 +1,7 @@
 package cz.tul.controllers;
 
 import cz.tul.api.RestApi;
+import cz.tul.helper.InputHelper;
 import cz.tul.model.State;
 import cz.tul.service.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +9,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import cz.tul.helper.InputHelper;
 
 @RestController
 public class StateController {
 
     private StateService stateService;
+    private InputHelper ih = new InputHelper();
 
     @Autowired
     public void setStateService(StateService stateService) {
@@ -30,14 +31,11 @@ public class StateController {
 
     @RequestMapping(value = RestApi.STATES_PATH, method = RequestMethod.POST)
     public ResponseEntity<State> createState(@RequestBody State state) {
-        Pattern p = Pattern.compile("[^A-Za-z ]");
-        Matcher m = p.matcher(state.getName());
-        boolean b = m.find();
         if (stateService.exists(state.getName())) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else if (state.getName().isEmpty()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }else if (b){
+        }else if (ih.isValidName(state.getName())){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
             stateService.create(state);

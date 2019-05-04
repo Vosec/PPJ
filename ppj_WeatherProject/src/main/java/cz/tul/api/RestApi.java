@@ -57,7 +57,6 @@ public interface RestApi {
     //	"name": "United Kingdom"
     //  },
     //  "cityId": 123456,
-    //  "name": "United Kingdom"
     //}
     @POST(CITIES_PATH)
     Call<City> createCity(@Body City city);

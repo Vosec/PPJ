@@ -1,6 +1,7 @@
 package cz.tul.controllers;
 
 import cz.tul.api.RestApi;
+import cz.tul.helper.InputHelper;
 import cz.tul.model.City;
 import cz.tul.service.CityService;
 import cz.tul.service.StateService;
@@ -16,6 +17,7 @@ import java.util.regex.Pattern;
 public class CityController {
     private CityService cityService;
     private StateService stateService;
+    private InputHelper ih = new InputHelper();
 
     @Autowired
     public void setCityService(CityService cityService) {
@@ -34,17 +36,13 @@ public class CityController {
     //City has to belong to already created State, else 400-BAD RQST
     @RequestMapping(value = RestApi.CITIES_PATH, method = RequestMethod.POST)
     public ResponseEntity<City> createCity(@RequestBody City city) {
-        Pattern p = Pattern.compile("[^A-Za-z ]");
-        Matcher m = p.matcher(city.getName());
-        boolean b = m.find();
-
         if (cityService.exists(city.getCityId())) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else if (!stateService.exists(city.getStateName())) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else if (city.getName().isEmpty()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }else if (b){
+        }else if (ih.isValidName(city.getName()) | ih.isValidCityId(city.getCityId())){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
             cityService.create(city);

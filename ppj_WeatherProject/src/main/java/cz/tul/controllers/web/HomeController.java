@@ -1,5 +1,6 @@
 package cz.tul.controllers.web;
 
+import cz.tul.helper.InputHelper;
 import cz.tul.model.State;
 import cz.tul.service.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.util.List;
 @Controller
 public class HomeController {
     private StateService stateService;
+    private InputHelper ih = new InputHelper();
 
     @Autowired
     public void setStateService(StateService stateService) {
@@ -31,8 +33,12 @@ public class HomeController {
     }
     @RequestMapping(value = "/createState", method= RequestMethod.POST)
     public String createState(HttpServletRequest request, @ModelAttribute(value="newState") State state) {
-        stateService.create(state);
+
+        if(ih.isValidName(state.getName())){
+            return "error-400";
+        }
         String referer = request.getHeader("Referer");
+        stateService.create(state);
         //returns to prev. page
         return "redirect:"+ referer;
     }
