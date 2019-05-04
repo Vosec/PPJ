@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RestController
 public class CityController {
@@ -32,9 +34,17 @@ public class CityController {
     //City has to belong to already created State, else 400-BAD RQST
     @RequestMapping(value = RestApi.CITIES_PATH, method = RequestMethod.POST)
     public ResponseEntity<City> createCity(@RequestBody City city) {
+        Pattern p = Pattern.compile("[^A-Za-z ]");
+        Matcher m = p.matcher(city.getName());
+        boolean b = m.find();
+
         if (cityService.exists(city.getCityId())) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } else if (!stateService.exists(city.getStateName())){
+        } else if (!stateService.exists(city.getStateName())) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else if (city.getName().isEmpty()){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else if (b){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
             cityService.create(city);

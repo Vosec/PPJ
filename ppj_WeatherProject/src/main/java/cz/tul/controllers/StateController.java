@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RestController
 public class StateController {
@@ -28,7 +30,14 @@ public class StateController {
 
     @RequestMapping(value = RestApi.STATES_PATH, method = RequestMethod.POST)
     public ResponseEntity<State> createState(@RequestBody State state) {
+        Pattern p = Pattern.compile("[^A-Za-z ]");
+        Matcher m = p.matcher(state.getName());
+        boolean b = m.find();
         if (stateService.exists(state.getName())) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else if (state.getName().isEmpty()){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else if (b){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
             stateService.create(state);
