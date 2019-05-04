@@ -7,6 +7,3 @@ Good to know:
 	* localhost:27017
 * thymeleaf - view
 
-TODO:
-* celkový refactoring
-* vytvoření popisu aplikace do readme
